@@ -1,6 +1,6 @@
-﻿namespace Equipment_Form
+﻿namespace Maintenance_Schedule
 {
-    partial class Equipment
+    partial class Equipment_Form
     {
         /// <summary>
         ///  Required designer variable.
@@ -82,6 +82,7 @@
             btnAddRequest.TabIndex = 4;
             btnAddRequest.Text = "Add Request";
             btnAddRequest.UseVisualStyleBackColor = true;
+            btnAddRequest.Click += btnAddRequest_Click;
             // 
             // btnEditRequest
             // 
@@ -91,6 +92,7 @@
             btnEditRequest.TabIndex = 5;
             btnEditRequest.Text = "Edit Request";
             btnEditRequest.UseVisualStyleBackColor = true;
+            btnEditRequest.Click += btnEditRequest_Click;
             // 
             // btnDeleteRequest
             // 
@@ -100,6 +102,7 @@
             btnDeleteRequest.TabIndex = 6;
             btnDeleteRequest.Text = "Delete Request";
             btnDeleteRequest.UseVisualStyleBackColor = true;
+            btnDeleteRequest.Click += btnDeleteRequest_Click;
             // 
             // btnSaveRequest
             // 
@@ -109,6 +112,7 @@
             btnSaveRequest.TabIndex = 7;
             btnSaveRequest.Text = "Save Request";
             btnSaveRequest.UseVisualStyleBackColor = true;
+            btnSaveRequest.Click += btnSaveRequest_Click;
             // 
             // lblItemName
             // 
@@ -118,7 +122,6 @@
             lblItemName.Size = new Size(72, 15);
             lblItemName.TabIndex = 8;
             lblItemName.Text = "Item Name :";
-            lblItemName.Click += label1_Click;
             // 
             // lblQuantity
             // 
@@ -138,7 +141,7 @@
             lblPurpose.TabIndex = 10;
             lblPurpose.Text = "Purpose/Notes :";
             // 
-            // Equipment
+            // Equipment_Form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -154,8 +157,9 @@
             Controls.Add(NumericUpDownQuantity);
             Controls.Add(txtBoxItemName);
             Controls.Add(DataGridView);
-            Name = "Equipment";
+            Name = "Equipment_Form";
             Text = "Equipment Form";
+            Load += Equipment_Form_Load;
             ((System.ComponentModel.ISupportInitialize)DataGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)NumericUpDownQuantity).EndInit();
             ResumeLayout(false);
