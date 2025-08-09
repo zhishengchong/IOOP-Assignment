@@ -24,8 +24,8 @@ namespace Maintenance_Schedule
 
         private void btnManageSupplies_Click(object sender, EventArgs e)
         {
-            Equipment_Form vsForm = new Equipment_Form();
-            vsForm.ShowDialog();
+            Equipment_Form eqForm = new Equipment_Form();
+            eqForm.Show();
         }
 
         private void btnUpdateProfile_Click(object sender, EventArgs e)

@@ -1,4 +1,5 @@
-﻿namespace Maintenance_Schedule
+﻿
+namespace Maintenance_Schedule
 {
     partial class Equipment_Form
     {
@@ -28,7 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridView = new DataGridView();
+            DataGridView1 = new DataGridView();
             txtBoxItemName = new TextBox();
             NumericUpDownQuantity = new NumericUpDown();
             txtBoxPurpose = new TextBox();
@@ -39,19 +40,19 @@
             lblItemName = new Label();
             lblQuantity = new Label();
             lblPurpose = new Label();
-            ((System.ComponentModel.ISupportInitialize)DataGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NumericUpDownQuantity).BeginInit();
             SuspendLayout();
             // 
             // DataGridView
             // 
-            DataGridView.BackgroundColor = Color.Silver;
-            DataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGridView.Location = new Point(22, 12);
-            DataGridView.Name = "DataGridView";
-            DataGridView.Size = new Size(756, 228);
-            DataGridView.TabIndex = 0;
-            DataGridView.CellContentClick += dataGridView1_CellContentClick;
+            DataGridView1.BackgroundColor = Color.Silver;
+            DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataGridView1.Location = new Point(22, 12);
+            DataGridView1.Name = "DataGridView1";
+            DataGridView1.Size = new Size(756, 228);
+            DataGridView1.TabIndex = 0;
+            DataGridView1.CellContentClick += DataGridView1_CellContentClick;
             // 
             // txtBoxItemName
             // 
@@ -156,19 +157,24 @@
             Controls.Add(txtBoxPurpose);
             Controls.Add(NumericUpDownQuantity);
             Controls.Add(txtBoxItemName);
-            Controls.Add(DataGridView);
+            Controls.Add(DataGridView1);
             Name = "Equipment_Form";
             Text = "Equipment Form";
             Load += Equipment_Form_Load;
-            ((System.ComponentModel.ISupportInitialize)DataGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)NumericUpDownQuantity).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
-        private DataGridView DataGridView;
+        private DataGridView DataGridView1;
         private TextBox txtBoxItemName;
         private NumericUpDown NumericUpDownQuantity;
         private TextBox txtBoxPurpose;
