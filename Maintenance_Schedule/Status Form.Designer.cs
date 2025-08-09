@@ -1,6 +1,6 @@
-﻿namespace Assignment_IOOP
+﻿namespace Maintenance_Schedule
 {
-    partial class Form1
+    partial class Status_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -32,8 +32,8 @@
             txtBoxFacilityName = new TextBox();
             txtBoxTaskDescription = new TextBox();
             comboBoxStatus = new ComboBox();
-            button1 = new Button();
-            button2 = new Button();
+            btnSaveStatus = new Button();
+            btnCancel = new Button();
             lblSelectScheduleID = new Label();
             lblFacilityName = new Label();
             label1 = new Label();
@@ -47,7 +47,7 @@
             comboBoxSelectScheduleID.Name = "comboBoxSelectScheduleID";
             comboBoxSelectScheduleID.Size = new Size(121, 23);
             comboBoxSelectScheduleID.TabIndex = 0;
-            comboBoxSelectScheduleID.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            comboBoxSelectScheduleID.SelectedIndexChanged += comboBoxSelectScheduleID_SelectedIndexChanged;
             // 
             // txtBoxFacilityName
             // 
@@ -71,24 +71,24 @@
             comboBoxStatus.Size = new Size(121, 23);
             comboBoxStatus.TabIndex = 3;
             // 
-            // button1
+            // btnSaveStatus
             // 
-            button1.Location = new Point(227, 361);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 4;
-            button1.Text = "Save Status";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnSaveStatus.Location = new Point(227, 361);
+            btnSaveStatus.Name = "btnSaveStatus";
+            btnSaveStatus.Size = new Size(75, 23);
+            btnSaveStatus.TabIndex = 4;
+            btnSaveStatus.Text = "Save Status";
+            btnSaveStatus.UseVisualStyleBackColor = true;
+            btnSaveStatus.Click += btnSaveStatus_Click;
             // 
-            // button2
+            // btnCancel
             // 
-            button2.Location = new Point(429, 361);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 5;
-            button2.Text = "Cancel";
-            button2.UseVisualStyleBackColor = true;
+            btnCancel.Location = new Point(429, 361);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Size = new Size(75, 23);
+            btnCancel.TabIndex = 5;
+            btnCancel.Text = "Cancel";
+            btnCancel.UseVisualStyleBackColor = true;
             // 
             // lblSelectScheduleID
             // 
@@ -126,7 +126,7 @@
             lblStatus.TabIndex = 9;
             lblStatus.Text = "Status :";
             // 
-            // Form1
+            // Status_Form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -136,15 +136,15 @@
             Controls.Add(label1);
             Controls.Add(lblFacilityName);
             Controls.Add(lblSelectScheduleID);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btnSaveStatus);
+            Controls.Add(btnCancel);
             Controls.Add(comboBoxStatus);
             Controls.Add(txtBoxTaskDescription);
             Controls.Add(txtBoxFacilityName);
             Controls.Add(comboBoxSelectScheduleID);
-            Name = "Form1";
+            Name = "Status_Form";
             Text = "Status Form";
-            Load += Form1_Load;
+            Load += Status_Form_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -155,8 +155,8 @@
         private TextBox txtBoxFacilityName;
         private TextBox txtBoxTaskDescription;
         private ComboBox comboBoxStatus;
-        private Button button1;
-        private Button button2;
+        private Button btnSaveStatus;
+        private Button btnCancel;
         private Label lblSelectScheduleID;
         private Label lblFacilityName;
         private Label label1;

@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Assignment_IOOP
+namespace Maintenance_Schedule
 {
-    public partial class Form1 : Form
+    public partial class Status_Form : Form
     {
         List<MaintenanceTask> tasks = new List<MaintenanceTask>();
 
@@ -21,22 +21,22 @@ namespace Assignment_IOOP
             public string TaskDescription { get; set; }
             public string Status { get; set; }
         }
-        public Form1()
+        public Status_Form()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSaveStatus_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxSelectScheduleID_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Status_Form_Load(object sender, EventArgs e)
         {
 
         }
