@@ -1,6 +1,7 @@
-﻿namespace Replacement_Form
+﻿
+namespace Maintenance_Schedule
 {
-    partial class Form1
+    partial class Replacement_Request
     {
         /// <summary>
         ///  Required designer variable.
@@ -48,7 +49,7 @@
             TxtBoxFacilityCode.Name = "TxtBoxFacilityCode";
             TxtBoxFacilityCode.Size = new Size(100, 23);
             TxtBoxFacilityCode.TabIndex = 0;
-            TxtBoxFacilityCode.TextChanged += textBox1_TextChanged;
+            TxtBoxFacilityCode.TextChanged += TxtBoxFacilityCode_TextChanged;
             // 
             // TxtBoxFacilityName
             // 
@@ -161,10 +162,16 @@
             Controls.Add(RichTxtBoxProblemDescription);
             Controls.Add(TxtBoxFacilityName);
             Controls.Add(TxtBoxFacilityCode);
-            Name = "Form1";
+            Name = "Replacement_Request";
             Text = "Replacement Request";
+            Load += Replacement_Request_Load;
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void TxtBoxFacilityCode_TextChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

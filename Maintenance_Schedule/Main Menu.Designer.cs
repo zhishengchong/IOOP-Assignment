@@ -1,7 +1,7 @@
 ﻿
 namespace Maintenance_Schedule
 {
-    partial class Form1
+    partial class Main_Menu
     {
         /// <summary>
         ///  Required designer variable.
@@ -58,7 +58,7 @@ namespace Maintenance_Schedule
             btnViewSchedule.TabIndex = 3;
             btnViewSchedule.Text = "View Schedule";
             btnViewSchedule.UseVisualStyleBackColor = false;
-            btnViewSchedule.Click += button4_Click;
+            btnViewSchedule.Click += btnViewSchedule_Click;
             // 
             // btnUpdateStatus
             // 
@@ -71,7 +71,7 @@ namespace Maintenance_Schedule
             btnUpdateStatus.TabIndex = 4;
             btnUpdateStatus.Text = "Update Status";
             btnUpdateStatus.UseVisualStyleBackColor = false;
-            btnUpdateStatus.Click += button2_Click;
+            btnUpdateStatus.Click += btnUpdateStatus_Click;
             // 
             // btnManageSupplies
             // 
@@ -83,6 +83,7 @@ namespace Maintenance_Schedule
             btnManageSupplies.TabIndex = 5;
             btnManageSupplies.Text = "Manage Supplies";
             btnManageSupplies.UseVisualStyleBackColor = false;
+            btnManageSupplies.Click += btnManageSupplies_Click;
             // 
             // btnRepairRequest
             // 
@@ -93,7 +94,7 @@ namespace Maintenance_Schedule
             btnRepairRequest.TabIndex = 6;
             btnRepairRequest.Text = "Repair Request";
             btnRepairRequest.UseVisualStyleBackColor = true;
-            btnRepairRequest.Click += button4_Click;
+            btnRepairRequest.Click += btnRepairRequest_Click;
             // 
             // btnUpdateProfile
             // 
@@ -104,6 +105,7 @@ namespace Maintenance_Schedule
             btnUpdateProfile.TabIndex = 7;
             btnUpdateProfile.Text = "Update Profile";
             btnUpdateProfile.UseVisualStyleBackColor = true;
+            btnUpdateProfile.Click += btnUpdateProfile_Click;
             // 
             // btnLogout
             // 
@@ -114,8 +116,9 @@ namespace Maintenance_Schedule
             btnLogout.TabIndex = 8;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
-            // Form1
+            // Main_Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -128,20 +131,10 @@ namespace Maintenance_Schedule
             Controls.Add(btnUpdateStatus);
             Controls.Add(btnViewSchedule);
             Controls.Add(lblInfo);
-            Name = "Form1";
+            Name = "Main_Menu";
+            Load += Main_Menu_Load;
             ResumeLayout(false);
             PerformLayout();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            Schedule_Form vsForm = new Schedule_Form();
-            vsForm.ShowDialog();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
         }
 
         #endregion

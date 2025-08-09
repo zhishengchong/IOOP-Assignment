@@ -1,6 +1,6 @@
-﻿namespace Update_Profile
+﻿namespace Maintenance_Schedule
 {
-    partial class Form1
+    partial class Update_Profile
     {
         /// <summary>
         ///  Required designer variable.
@@ -139,9 +139,9 @@
             Controls.Add(txtBoxPhone);
             Controls.Add(txtBoxEmail);
             Controls.Add(txtBoxName);
-            Name = "Form1";
+            Name = "Update_Profile";
             Text = "Update Profile";
-            Load += Form1_Load;
+            Load += Update_Profile_Load;
             ResumeLayout(false);
             PerformLayout();
         }

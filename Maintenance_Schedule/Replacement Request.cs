@@ -1,13 +1,13 @@
-namespace Replacement_Form
+namespace Maintenance_Schedule
 {
-    public partial class Form1 : Form
+    public partial class Replacement_Request : Form
     {
-        public Form1()
+        public Replacement_Request()
         {
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void Replacement_Request_Load(object sender, EventArgs e)
         {
 
         }

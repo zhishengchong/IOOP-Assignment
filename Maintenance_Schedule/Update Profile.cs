@@ -1,8 +1,8 @@
-namespace Update_Profile
+namespace Maintenance_Schedule
 {
-    public partial class Form1 : Form
+    public partial class Update_Profile : Form
     {
-        public Form1()
+        public Update_Profile()
         {
             InitializeComponent();
         }
@@ -12,7 +12,7 @@ namespace Update_Profile
 
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Update_Profile_Load(object sender, EventArgs e)
         {
 
         }
