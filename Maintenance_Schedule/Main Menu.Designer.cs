@@ -29,7 +29,7 @@ namespace Maintenance_Schedule
         /// </summary>
         private void InitializeComponent()
         {
-            lblInfo = new Label();
+            lblWelcome = new Label();
             btnViewSchedule = new Button();
             btnUpdateStatus = new Button();
             btnManageSupplies = new Button();
@@ -38,15 +38,16 @@ namespace Maintenance_Schedule
             btnLogout = new Button();
             SuspendLayout();
             // 
-            // lblInfo
+            // lblWelcome
             // 
-            lblInfo.AutoSize = true;
-            lblInfo.Font = new Font("Verdana", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblInfo.Location = new Point(68, 68);
-            lblInfo.Name = "lblInfo";
-            lblInfo.Size = new Size(639, 59);
-            lblInfo.TabIndex = 2;
-            lblInfo.Text = "Welcome [Staff Name]";
+            lblWelcome.AutoSize = true;
+            lblWelcome.Font = new Font("Verdana", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblWelcome.Location = new Point(144, 61);
+            lblWelcome.Name = "lblWelcome";
+            lblWelcome.Size = new Size(327, 59);
+            lblWelcome.TabIndex = 2;
+            lblWelcome.Text = "\"Welcome\"";
+            lblWelcome.Click += lblWelcome_Click;
             // 
             // btnViewSchedule
             // 
@@ -130,7 +131,7 @@ namespace Maintenance_Schedule
             Controls.Add(btnManageSupplies);
             Controls.Add(btnUpdateStatus);
             Controls.Add(btnViewSchedule);
-            Controls.Add(lblInfo);
+            Controls.Add(lblWelcome);
             Name = "Main_Menu";
             Load += Main_Menu_Load;
             ResumeLayout(false);
@@ -138,7 +139,7 @@ namespace Maintenance_Schedule
         }
 
         #endregion
-        private Label lblInfo;
+        private Label lblWelcome;
         private Button btnViewSchedule;
         private Button btnUpdateStatus;
         private Button btnManageSupplies;

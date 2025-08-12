@@ -1,17 +1,27 @@
+using System;
+using System.Windows.Forms;
+
 namespace Maintenance_Schedule
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Main_Menu(1));
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            // Show login form first
+            Login_Menu loginForm = new Login_Menu();
+            if (loginForm.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new Main_Menu(loginForm.CurrentStaffName!));
+            }
+            else
+            {
+                Application.Exit();
+            }
+
         }
     }
 }

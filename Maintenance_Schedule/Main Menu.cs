@@ -9,17 +9,17 @@ namespace Maintenance_Schedule
 {
     public partial class Main_Menu : Form
     {
-        private int staffId;
-        private string connectionString = "Data Source=localhost;Initial Catalog=Maintenance_Schedule;Integrated Security=True;TrustServerCertificate=True";
-        public Main_Menu(int currentStaffId)
+        private readonly string staffName;
+        public Main_Menu(string currentStaffName)
         {
             InitializeComponent();
-            staffId = currentStaffId;
+
+            staffName = currentStaffName ?? throw new ArgumentNullException(nameof(currentStaffName));
         }
 
         private void Main_Menu_Load(object sender, EventArgs e)
         {
-
+            lblWelcome.Text = $"Welcome, {staffName}!";
         }
 
         private void btnManageSupplies_Click(object sender, EventArgs e)
@@ -54,6 +54,11 @@ namespace Maintenance_Schedule
         private void btnLogout_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void lblWelcome_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
