@@ -36,60 +36,66 @@
             btnCancel = new Button();
             lblName = new Label();
             lblEmail = new Label();
-            lblPhone = new Label();
+            lblPhoneNumber = new Label();
             lblPassword = new Label();
+            DataGridViewStaff = new DataGridView();
+            lblStaffID = new Label();
+            txtBoxStaffId = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)DataGridViewStaff).BeginInit();
             SuspendLayout();
             // 
             // txtBoxName
             // 
-            txtBoxName.Location = new Point(162, 55);
+            txtBoxName.Location = new Point(162, 269);
             txtBoxName.Name = "txtBoxName";
             txtBoxName.Size = new Size(343, 23);
             txtBoxName.TabIndex = 0;
             // 
             // txtBoxEmail
             // 
-            txtBoxEmail.Location = new Point(162, 121);
+            txtBoxEmail.Location = new Point(162, 319);
             txtBoxEmail.Name = "txtBoxEmail";
             txtBoxEmail.Size = new Size(343, 23);
             txtBoxEmail.TabIndex = 1;
             // 
             // txtBoxPhone
             // 
-            txtBoxPhone.Location = new Point(162, 189);
+            txtBoxPhone.Location = new Point(162, 371);
             txtBoxPhone.Name = "txtBoxPhone";
             txtBoxPhone.Size = new Size(343, 23);
             txtBoxPhone.TabIndex = 2;
             // 
             // txtBoxPassword
             // 
-            txtBoxPassword.Location = new Point(162, 260);
+            txtBoxPassword.Location = new Point(162, 423);
             txtBoxPassword.Name = "txtBoxPassword";
             txtBoxPassword.Size = new Size(343, 23);
             txtBoxPassword.TabIndex = 3;
             // 
             // btnSaveProfile
             // 
-            btnSaveProfile.Location = new Point(162, 363);
+            btnSaveProfile.Location = new Point(647, 269);
             btnSaveProfile.Name = "btnSaveProfile";
             btnSaveProfile.Size = new Size(120, 23);
             btnSaveProfile.TabIndex = 4;
             btnSaveProfile.Text = "Save Profile";
             btnSaveProfile.UseVisualStyleBackColor = true;
+            btnSaveProfile.Click += btnSaveProfile_Click;
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(443, 363);
+            btnCancel.Location = new Point(646, 337);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(121, 23);
             btnCancel.TabIndex = 5;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // lblName
             // 
             lblName.AutoSize = true;
-            lblName.Location = new Point(93, 58);
+            lblName.Location = new Point(28, 272);
             lblName.Name = "lblName";
             lblName.Size = new Size(45, 15);
             lblName.TabIndex = 6;
@@ -98,39 +104,65 @@
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(93, 124);
+            lblEmail.Location = new Point(28, 322);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(42, 15);
             lblEmail.TabIndex = 7;
             lblEmail.Text = "Email :";
             // 
-            // lblPhone
+            // lblPhoneNumber
             // 
-            lblPhone.AutoSize = true;
-            lblPhone.Location = new Point(93, 192);
-            lblPhone.Name = "lblPhone";
-            lblPhone.Size = new Size(47, 15);
-            lblPhone.TabIndex = 8;
-            lblPhone.Text = "Phone :";
-            lblPhone.Click += label3_Click;
+            lblPhoneNumber.AutoSize = true;
+            lblPhoneNumber.Location = new Point(28, 374);
+            lblPhoneNumber.Name = "lblPhoneNumber";
+            lblPhoneNumber.Size = new Size(91, 15);
+            lblPhoneNumber.TabIndex = 8;
+            lblPhoneNumber.Text = "Phone Number:";
             // 
             // lblPassword
             // 
             lblPassword.AutoSize = true;
-            lblPassword.Location = new Point(93, 263);
+            lblPassword.Location = new Point(28, 426);
             lblPassword.Name = "lblPassword";
             lblPassword.Size = new Size(63, 15);
             lblPassword.TabIndex = 9;
             lblPassword.Text = "Password :";
             // 
-            // Form1
+            // DataGridViewStaff
+            // 
+            DataGridViewStaff.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataGridViewStaff.Location = new Point(12, 12);
+            DataGridViewStaff.Name = "DataGridViewStaff";
+            DataGridViewStaff.Size = new Size(776, 196);
+            DataGridViewStaff.TabIndex = 10;
+            // 
+            // lblStaffID
+            // 
+            lblStaffID.AutoSize = true;
+            lblStaffID.Location = new Point(28, 226);
+            lblStaffID.Name = "lblStaffID";
+            lblStaffID.Size = new Size(51, 15);
+            lblStaffID.TabIndex = 11;
+            lblStaffID.Text = "Staff ID :";
+            // 
+            // txtBoxStaffId
+            // 
+            txtBoxStaffId.Location = new Point(162, 223);
+            txtBoxStaffId.Name = "txtBoxStaffId";
+            txtBoxStaffId.Size = new Size(343, 23);
+            txtBoxStaffId.TabIndex = 12;
+            // 
+            // Update_Profile
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Silver;
             ClientSize = new Size(800, 450);
+            Controls.Add(txtBoxStaffId);
+            Controls.Add(lblStaffID);
+            Controls.Add(DataGridViewStaff);
             Controls.Add(lblPassword);
-            Controls.Add(lblPhone);
+            Controls.Add(lblPhoneNumber);
             Controls.Add(lblEmail);
             Controls.Add(lblName);
             Controls.Add(btnCancel);
@@ -142,6 +174,7 @@
             Name = "Update_Profile";
             Text = "Update Profile";
             Load += Update_Profile_Load;
+            ((System.ComponentModel.ISupportInitialize)DataGridViewStaff).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -156,7 +189,10 @@
         private Button btnCancel;
         private Label lblName;
         private Label lblEmail;
-        private Label lblPhone;
+        private Label lblPhoneNumber;
         private Label lblPassword;
+        private DataGridView DataGridViewStaff;
+        private Label lblStaffID;
+        private TextBox txtBoxStaffId;
     }
 }
