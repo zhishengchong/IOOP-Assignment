@@ -1,20 +1,19 @@
 
+using System;
 using System.Data;
-using System.Diagnostics.Eventing.Reader;
-using System.Linq.Expressions;
-using System.Text;
-using System.Windows.Forms;
 using Microsoft.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Maintenance_Schedule
 {
     public partial class Equipment_Form : Form
     {
+        private string connectionString = "Server=YOUR_SERVER_NAME;Database=YOUR_DATABASE_NAME;Trusted_Connection=True;";
+
         public Equipment_Form()
         {
             InitializeComponent();
         }
-        private string connectionString = "Server=LEBRON\\SQLEXPRESS;Database=IOOP-Assignment;Trusted_Connection=True;";
         private void Equipment_Form_Load(object sender, EventArgs e)
         {
             LoadDataFromDatabase();
@@ -106,16 +105,7 @@ namespace Maintenance_Schedule
 
         private void btnSaveRequest_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string filePath = "equipment_form.xml";
-                table.WriteXml(filePath, XmlWriteMode.WriteSchema);
-                MessageBox.Show("Data saved successfully.");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error saving data: " + ex.Message);
-            }
+            MessageBox.Show("All changes are already saved to the database.");
         }
     }
 }
