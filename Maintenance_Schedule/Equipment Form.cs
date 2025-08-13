@@ -4,85 +4,73 @@ using System.Diagnostics.Eventing.Reader;
 using System.Linq.Expressions;
 using System.Text;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
 
 namespace Maintenance_Schedule
 {
     public partial class Equipment_Form : Form
     {
-        private DataTable table;
         public Equipment_Form()
         {
             InitializeComponent();
         }
-
-
-
+        private string connectionString = "Server=LEBRON\\SQLEXPRESS;Database=IOOP-Assignment;Trusted_Connection=True;";
         private void Equipment_Form_Load(object sender, EventArgs e)
         {
-            string filePath = "equipment_form.xml";
-            table = new DataTable("Equipment_Form");
-            if (System.IO.File.Exists(filePath) && new System.IO.FileInfo(filePath).Length > 0)
-            {
-                try
-                {
-                    table = new DataTable();
-                    table.ReadXml(filePath);
-                    DataGridView1.DataSource = table;
-
-                    if (table.Columns.Count == 0)
-                    {
-                        LoadDefaultTable();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error reading saved data. Loading default data.\n" + ex.Message);
-                    LoadDefaultTable();
-                }
-            }
-            else
-            {
-                LoadDefaultTable();
-            }
-
+            LoadDataFromDatabase();
             DataGridView1.AllowUserToAddRows = false;
             DataGridView1.AllowUserToDeleteRows = false;
-         }
-
-        private void LoadDefaultTable()
-        {
-            table = new DataTable("Equipment_Form");
-
-            table.Columns.Add("Request ID", typeof(int));
-            table.Columns.Add("Item Name", typeof(string));
-            table.Columns.Add("Quantity", typeof(int));
-            table.Columns.Add("Purpose", typeof(string));
-
-            table.Rows.Add(1, "Mop", 5, "Replace worn-out cleaning mops for sports hall");
-            table.Rows.Add(2, "Detergent", 10, "Refill stock for swimming pool cleaning");
-            table.Rows.Add(3, "Floor Polisher", 1, "Purchase for basketball court maintenance");
-            table.Rows.Add(4, "Trash Bags", 200, "Stock up for monthly facility cleaning");
-            table.Rows.Add(5, "Lights Bulb", 15, "Replace burnt-out lights in badminton courts");
-            table.Rows.Add(6, "Ladder", 1, "Required for ceiling maintenance in gym");
-            table.Rows.Add(7, "Gloves", 50, "Safety equipment for cleaning staff");
-            table.Rows.Add(8, "Sanitizer", 10, "For sanitizing gym equipment");
-
-            DataGridView1.DataSource = table;
         }
+
+        private void LoadDataFromDatabase()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Equipment", conn);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                DataGridView1.DataSource = dt;
+            }
+        }
+
         private void btnAddRequest_Click(object sender, EventArgs e)
         {
-            int newId = table.Rows.Count > 0
-            ? (int)table.Rows[table.Rows.Count - 1]["Request ID"] + 1
-            : 1;
-            MessageBox.Show("Column count: " + table.Columns.Count);
-            table.Rows.Add(newId, "New Item", 0, "Purpose here");
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "INSERT INTO Equipment ([Item Name], Quantity, Purpose) VALUES (@ItemName, @Quantity, @Purpose)";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@ItemName", "New Item");
+                    cmd.Parameters.AddWithValue("@Quantity", 0);
+                    cmd.Parameters.AddWithValue("@Purpose", "Purpose here");
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            LoadDataFromDatabase();
         }
 
         private void btnEditRequest_Click(object sender, EventArgs e)
         {
             if (DataGridView1.CurrentRow != null)
             {
-                DataGridView1.BeginEdit(true);
+                int requestId = Convert.ToInt32(DataGridView1.CurrentRow.Cells["Request ID"].Value);
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "UPDATE Equipment SET [Item Name] = @ItemName, Quantity = @Quantity, Purpose = @Purpose WHERE [Request ID] = @RequestID";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ItemName", DataGridView1.CurrentRow.Cells["Item Name"].Value);
+                        cmd.Parameters.AddWithValue("@Quantity", DataGridView1.CurrentRow.Cells["Quantity"].Value);
+                        cmd.Parameters.AddWithValue("@Purpose", DataGridView1.CurrentRow.Cells["Purpose"].Value);
+                        cmd.Parameters.AddWithValue("@RequestID", requestId);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                LoadDataFromDatabase();
             }
             else
             {
@@ -90,17 +78,31 @@ namespace Maintenance_Schedule
             }
         }
 
+
         private void btnDeleteRequest_Click(object sender, EventArgs e)
         {
             if (DataGridView1.CurrentRow != null)
             {
-                DataGridView1.Rows.Remove(DataGridView1.CurrentRow);
+                int requestId = Convert.ToInt32(DataGridView1.CurrentRow.Cells["Request ID"].Value);
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string query = "DELETE FROM Equipment WHERE [Request ID] = @RequestID";
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@RequestID", requestId);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                LoadDataFromDatabase();
             }
             else
             {
                 MessageBox.Show("Please select a row to delete.");
             }
         }
+
 
         private void btnSaveRequest_Click(object sender, EventArgs e)
         {
