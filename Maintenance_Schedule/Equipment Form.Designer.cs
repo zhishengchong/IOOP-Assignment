@@ -52,7 +52,6 @@ namespace Maintenance_Schedule
             DataGridView1.Name = "DataGridView1";
             DataGridView1.Size = new Size(756, 228);
             DataGridView1.TabIndex = 0;
-            DataGridView1.CellContentClick += DataGridView1_CellContentClick;
             // 
             // txtBoxItemName
             // 
@@ -165,11 +164,6 @@ namespace Maintenance_Schedule
             ((System.ComponentModel.ISupportInitialize)NumericUpDownQuantity).EndInit();
             ResumeLayout(false);
             PerformLayout();
-        }
-
-        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            throw new NotImplementedException();
         }
 
         #endregion
