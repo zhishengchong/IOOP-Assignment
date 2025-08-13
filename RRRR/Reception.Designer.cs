@@ -1,4 +1,6 @@
-﻿namespace ARFMS_Reception
+﻿
+
+namespace ARFMS_Reception
 {
     partial class Reception
     {

@@ -2,6 +2,7 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
 
 namespace ARFMS_Reception
 {
@@ -130,4 +131,3 @@ namespace ARFMS_Reception
         }
     }
 }
-guguhpmouu
