@@ -17,9 +17,9 @@ namespace Maintenance_Schedule
         public class MaintenanceTask
         {
             public int ScheduleID { get; set; }
-            public string FacilityName { get; set; }
-            public string TaskDescription { get; set; }
-            public string Status { get; set; }
+            public string FacilityName { get; set; } = string.Empty;
+            public string TaskDescription { get; set; } = string.Empty;
+            public string Status { get; set; } = string.Empty;
         }
         public Status_Form()
         {

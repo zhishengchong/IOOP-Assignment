@@ -44,7 +44,7 @@ namespace Maintenance_Schedule
             ((System.ComponentModel.ISupportInitialize)NumericUpDownQuantity).BeginInit();
             SuspendLayout();
             // 
-            // DataGridView
+            // DataGridView1
             // 
             DataGridView1.BackgroundColor = Color.Silver;
             DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
