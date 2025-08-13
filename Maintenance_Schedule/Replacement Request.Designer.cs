@@ -29,98 +29,86 @@ namespace Maintenance_Schedule
         /// </summary>
         private void InitializeComponent()
         {
-            TxtBoxFacilityCode = new TextBox();
-            TxtBoxFacilityName = new TextBox();
-            RichTxtBoxProblemDescription = new RichTextBox();
-            ComboBoxRequestType = new ComboBox();
-            DateTimePickerDateReported = new DateTimePicker();
+            txtBoxFacilityCode = new TextBox();
+            richTxtBoxProblemDescription = new RichTextBox();
+            comboBoxRequestType = new ComboBox();
+            dateTimePickerDateReported = new DateTimePicker();
             btnSubmit = new Button();
             btnCancel = new Button();
             lblFacilityCode = new Label();
-            lblFacilityName = new Label();
             lblProblemDescription = new Label();
             lblRequestType = new Label();
             lblDateReported = new Label();
+            DataGridView1 = new DataGridView();
+            lblFacilityName = new Label();
+            txtBoxFacilityName = new TextBox();
+            btnDelete = new Button();
+            btnEdit = new Button();
+            ((System.ComponentModel.ISupportInitialize)DataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // TxtBoxFacilityCode
+            // txtBoxFacilityCode
             // 
-            TxtBoxFacilityCode.Location = new Point(192, 37);
-            TxtBoxFacilityCode.Name = "TxtBoxFacilityCode";
-            TxtBoxFacilityCode.Size = new Size(100, 23);
-            TxtBoxFacilityCode.TabIndex = 0;
-            TxtBoxFacilityCode.TextChanged += TxtBoxFacilityCode_TextChanged;
+            txtBoxFacilityCode.Location = new Point(192, 226);
+            txtBoxFacilityCode.Name = "txtBoxFacilityCode";
+            txtBoxFacilityCode.Size = new Size(100, 23);
+            txtBoxFacilityCode.TabIndex = 0;
             // 
-            // TxtBoxFacilityName
+            // richTxtBoxProblemDescription
             // 
-            TxtBoxFacilityName.Location = new Point(192, 90);
-            TxtBoxFacilityName.Name = "TxtBoxFacilityName";
-            TxtBoxFacilityName.Size = new Size(100, 23);
-            TxtBoxFacilityName.TabIndex = 1;
+            richTxtBoxProblemDescription.Location = new Point(192, 297);
+            richTxtBoxProblemDescription.Name = "richTxtBoxProblemDescription";
+            richTxtBoxProblemDescription.Size = new Size(596, 27);
+            richTxtBoxProblemDescription.TabIndex = 2;
+            richTxtBoxProblemDescription.Text = "";
             // 
-            // RichTxtBoxProblemDescription
+            // comboBoxRequestType
             // 
-            RichTxtBoxProblemDescription.Location = new Point(192, 147);
-            RichTxtBoxProblemDescription.Name = "RichTxtBoxProblemDescription";
-            RichTxtBoxProblemDescription.Size = new Size(100, 96);
-            RichTxtBoxProblemDescription.TabIndex = 2;
-            RichTxtBoxProblemDescription.Text = "";
+            comboBoxRequestType.FormattingEnabled = true;
+            comboBoxRequestType.Location = new Point(192, 339);
+            comboBoxRequestType.Name = "comboBoxRequestType";
+            comboBoxRequestType.Size = new Size(121, 23);
+            comboBoxRequestType.TabIndex = 3;
             // 
-            // ComboBoxRequestType
+            // dateTimePickerDateReported
             // 
-            ComboBoxRequestType.FormattingEnabled = true;
-            ComboBoxRequestType.Location = new Point(192, 279);
-            ComboBoxRequestType.Name = "ComboBoxRequestType";
-            ComboBoxRequestType.Size = new Size(121, 23);
-            ComboBoxRequestType.TabIndex = 3;
-            // 
-            // DateTimePickerDateReported
-            // 
-            DateTimePickerDateReported.Location = new Point(192, 334);
-            DateTimePickerDateReported.Name = "DateTimePickerDateReported";
-            DateTimePickerDateReported.Size = new Size(200, 23);
-            DateTimePickerDateReported.TabIndex = 4;
+            dateTimePickerDateReported.Location = new Point(192, 376);
+            dateTimePickerDateReported.Name = "dateTimePickerDateReported";
+            dateTimePickerDateReported.Size = new Size(200, 23);
+            dateTimePickerDateReported.TabIndex = 4;
             // 
             // btnSubmit
             // 
-            btnSubmit.Location = new Point(267, 390);
+            btnSubmit.Location = new Point(137, 415);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.Size = new Size(75, 23);
             btnSubmit.TabIndex = 5;
-            btnSubmit.Text = "Submit Request";
+            btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = true;
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(415, 390);
+            btnCancel.Location = new Point(564, 415);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(75, 23);
             btnCancel.TabIndex = 6;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // lblFacilityCode
             // 
             lblFacilityCode.AutoSize = true;
-            lblFacilityCode.Location = new Point(43, 40);
+            lblFacilityCode.Location = new Point(12, 229);
             lblFacilityCode.Name = "lblFacilityCode";
             lblFacilityCode.Size = new Size(81, 15);
             lblFacilityCode.TabIndex = 7;
             lblFacilityCode.Text = "Facility Code :";
             // 
-            // lblFacilityName
-            // 
-            lblFacilityName.AutoSize = true;
-            lblFacilityName.Location = new Point(43, 90);
-            lblFacilityName.Name = "lblFacilityName";
-            lblFacilityName.Size = new Size(85, 15);
-            lblFacilityName.TabIndex = 8;
-            lblFacilityName.Text = "Facility Name :";
-            // 
             // lblProblemDescription
             // 
             lblProblemDescription.AutoSize = true;
-            lblProblemDescription.Location = new Point(43, 150);
+            lblProblemDescription.Location = new Point(12, 300);
             lblProblemDescription.Name = "lblProblemDescription";
             lblProblemDescription.Size = new Size(121, 15);
             lblProblemDescription.TabIndex = 9;
@@ -129,7 +117,7 @@ namespace Maintenance_Schedule
             // lblRequestType
             // 
             lblRequestType.AutoSize = true;
-            lblRequestType.Location = new Point(43, 282);
+            lblRequestType.Location = new Point(12, 342);
             lblRequestType.Name = "lblRequestType";
             lblRequestType.Size = new Size(83, 15);
             lblRequestType.TabIndex = 10;
@@ -138,55 +126,100 @@ namespace Maintenance_Schedule
             // lblDateReported
             // 
             lblDateReported.AutoSize = true;
-            lblDateReported.Location = new Point(43, 340);
+            lblDateReported.Location = new Point(12, 382);
             lblDateReported.Name = "lblDateReported";
             lblDateReported.Size = new Size(88, 15);
             lblDateReported.TabIndex = 11;
             lblDateReported.Text = "Date Reported :";
             // 
-            // Form1
+            // DataGridView1
+            // 
+            DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataGridView1.Location = new Point(12, 12);
+            DataGridView1.Name = "DataGridView1";
+            DataGridView1.Size = new Size(776, 195);
+            DataGridView1.TabIndex = 12;
+            // 
+            // lblFacilityName
+            // 
+            lblFacilityName.AutoSize = true;
+            lblFacilityName.Location = new Point(12, 263);
+            lblFacilityName.Name = "lblFacilityName";
+            lblFacilityName.Size = new Size(85, 15);
+            lblFacilityName.TabIndex = 13;
+            lblFacilityName.Text = "Facility Name :";
+            // 
+            // txtBoxFacilityName
+            // 
+            txtBoxFacilityName.Location = new Point(192, 260);
+            txtBoxFacilityName.Name = "txtBoxFacilityName";
+            txtBoxFacilityName.Size = new Size(100, 23);
+            txtBoxFacilityName.TabIndex = 14;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(419, 415);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(75, 23);
+            btnDelete.TabIndex = 15;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnEdit
+            // 
+            btnEdit.Location = new Point(278, 415);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(75, 23);
+            btnEdit.TabIndex = 16;
+            btnEdit.Text = "Edit";
+            btnEdit.UseVisualStyleBackColor = true;
+            // 
+            // Replacement_Request
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Silver;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnEdit);
+            Controls.Add(btnDelete);
+            Controls.Add(txtBoxFacilityName);
+            Controls.Add(lblFacilityName);
+            Controls.Add(DataGridView1);
             Controls.Add(lblDateReported);
             Controls.Add(lblRequestType);
             Controls.Add(lblProblemDescription);
-            Controls.Add(lblFacilityName);
             Controls.Add(lblFacilityCode);
             Controls.Add(btnCancel);
             Controls.Add(btnSubmit);
-            Controls.Add(DateTimePickerDateReported);
-            Controls.Add(ComboBoxRequestType);
-            Controls.Add(RichTxtBoxProblemDescription);
-            Controls.Add(TxtBoxFacilityName);
-            Controls.Add(TxtBoxFacilityCode);
+            Controls.Add(dateTimePickerDateReported);
+            Controls.Add(comboBoxRequestType);
+            Controls.Add(richTxtBoxProblemDescription);
+            Controls.Add(txtBoxFacilityCode);
             Name = "Replacement_Request";
             Text = "Replacement Request";
             Load += Replacement_Request_Load;
+            ((System.ComponentModel.ISupportInitialize)DataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
-        private void TxtBoxFacilityCode_TextChanged(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
 
         #endregion
 
-        private TextBox TxtBoxFacilityCode;
-        private TextBox TxtBoxFacilityName;
-        private RichTextBox RichTxtBoxProblemDescription;
-        private ComboBox ComboBoxRequestType;
-        private DateTimePicker DateTimePickerDateReported;
+        private TextBox txtBoxFacilityCode;
+        private RichTextBox richTxtBoxProblemDescription;
+        private ComboBox comboBoxRequestType;
+        private DateTimePicker dateTimePickerDateReported;
         private Button btnSubmit;
         private Button btnCancel;
         private Label lblFacilityCode;
-        private Label lblFacilityName;
         private Label lblProblemDescription;
         private Label lblRequestType;
         private Label lblDateReported;
+        private DataGridView DataGridView1;
+        private Label lblFacilityName;
+        private TextBox txtBoxFacilityName;
+        private Button btnDelete;
+        private Button btnEdit;
     }
 }

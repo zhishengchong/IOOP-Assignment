@@ -39,7 +39,7 @@ namespace Maintenance_Schedule
             vsForm.ShowDialog();
         }
 
-        private void btnRepairRequest_Click(object sender, EventArgs e)
+        private void btnReplacementRequest_Click(object sender, EventArgs e)
         {
             Replacement_Request vsForm = new Replacement_Request();
             vsForm.ShowDialog();
