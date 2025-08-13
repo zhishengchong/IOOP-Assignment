@@ -8,7 +8,7 @@ namespace Maintenance_Schedule
 {
     public partial class Equipment_Form : Form
     {
-        private string connectionString = "Server=YOUR_SERVER_NAME;Database=YOUR_DATABASE_NAME;Trusted_Connection=True;";
+        private string connectionString = "Server=LEBRON\\SQLEXPRESS;Database=IOOP-Assignment;Trusted_Connection=True;";
 
         public Equipment_Form()
         {
