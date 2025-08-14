@@ -1,0 +1,14 @@
+D:\IOOP Project\ARFMS.StudentApp\ARFMS.StudentApp\bin\Debug\ARFMS.StudentApp.exe.config
+D:\IOOP Project\ARFMS.StudentApp\ARFMS.StudentApp\bin\Debug\ARFMS.StudentApp.exe
+D:\IOOP Project\ARFMS.StudentApp\ARFMS.StudentApp\bin\Debug\ARFMS.StudentApp.pdb
+D:\IOOP Project\ARFMS.StudentApp\ARFMS.StudentApp\bin\Debug\System.Configuration.ConfigurationManager.dll
+D:\IOOP Project\ARFMS.StudentApp\ARFMS.StudentApp\bin\Debug\System.Configuration.ConfigurationManager.xml
+D:\IOOP Project\ARFMS.StudentApp\ARFMS.StudentApp\obj\Debug\ARFMS.StudentApp.csproj.AssemblyReference.cache
+D:\IOOP Project\ARFMS.StudentApp\ARFMS.StudentApp\obj\Debug\ARFMS.StudentApp.Properties.Resources.resources
+D:\IOOP Project\ARFMS.StudentApp\ARFMS.StudentApp\obj\Debug\ARFMS.StudentApp.UI.LoginForm.resources
+D:\IOOP Project\ARFMS.StudentApp\ARFMS.StudentApp\obj\Debug\ARFMS.StudentApp.UI.StudentDashboardForm.resources
+D:\IOOP Project\ARFMS.StudentApp\ARFMS.StudentApp\obj\Debug\ARFMS.StudentApp.csproj.GenerateResource.cache
+D:\IOOP Project\ARFMS.StudentApp\ARFMS.StudentApp\obj\Debug\ARFMS.StudentApp.csproj.CoreCompileInputs.cache
+D:\IOOP Project\ARFMS.StudentApp\ARFMS.StudentApp\obj\Debug\ARFMS.St.F75F26B6.Up2Date
+D:\IOOP Project\ARFMS.StudentApp\ARFMS.StudentApp\obj\Debug\ARFMS.StudentApp.exe
+D:\IOOP Project\ARFMS.StudentApp\ARFMS.StudentApp\obj\Debug\ARFMS.StudentApp.pdb
