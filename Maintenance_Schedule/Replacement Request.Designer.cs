@@ -164,6 +164,7 @@ namespace Maintenance_Schedule
             btnDelete.TabIndex = 15;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnEdit
             // 
@@ -173,6 +174,7 @@ namespace Maintenance_Schedule
             btnEdit.TabIndex = 16;
             btnEdit.Text = "Edit";
             btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
             // 
             // Replacement_Request
             // 

@@ -28,22 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridView = new DataGridView();
+            DataGridView1 = new DataGridView();
             DateTimePickerFilterScheduleByDate = new DateTimePicker();
-            btnRefresh = new Button();
             lblFilterScheduleByDate = new Label();
-            ((System.ComponentModel.ISupportInitialize)DataGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // DataGridView
+            // DataGridView1
             // 
-            DataGridView.BackgroundColor = Color.Silver;
-            DataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGridView.Location = new Point(12, 78);
-            DataGridView.Name = "DataGridView";
-            DataGridView.Size = new Size(776, 331);
-            DataGridView.TabIndex = 0;
-            DataGridView.CellContentClick += dataGridView1_CellContentClick;
+            DataGridView1.BackgroundColor = Color.Silver;
+            DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataGridView1.Location = new Point(12, 78);
+            DataGridView1.Name = "DataGridView1";
+            DataGridView1.Size = new Size(776, 360);
+            DataGridView1.TabIndex = 0;
             // 
             // DateTimePickerFilterScheduleByDate
             // 
@@ -51,15 +49,7 @@
             DateTimePickerFilterScheduleByDate.Name = "DateTimePickerFilterScheduleByDate";
             DateTimePickerFilterScheduleByDate.Size = new Size(200, 23);
             DateTimePickerFilterScheduleByDate.TabIndex = 1;
-            // 
-            // btnRefresh
-            // 
-            btnRefresh.Location = new Point(347, 415);
-            btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(75, 23);
-            btnRefresh.TabIndex = 2;
-            btnRefresh.Text = "Refresh";
-            btnRefresh.UseVisualStyleBackColor = true;
+            DateTimePickerFilterScheduleByDate.ValueChanged += DateTimePickerFilterScheduleByDate_ValueChanged;
             // 
             // lblFilterScheduleByDate
             // 
@@ -70,28 +60,26 @@
             lblFilterScheduleByDate.TabIndex = 3;
             lblFilterScheduleByDate.Text = "Filter schedule by date :";
             // 
-            // Form1
+            // Schedule_Form
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(lblFilterScheduleByDate);
-            Controls.Add(btnRefresh);
             Controls.Add(DateTimePickerFilterScheduleByDate);
-            Controls.Add(DataGridView);
+            Controls.Add(DataGridView1);
             Name = "Schedule_Form";
             Text = "Schedule Form";
             Load += Schedule_Form_Load;
-            ((System.ComponentModel.ISupportInitialize)DataGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView DataGridView;
+        private DataGridView DataGridView1;
         private DateTimePicker DateTimePickerFilterScheduleByDate;
-        private Button btnRefresh;
         private Label lblFilterScheduleByDate;
     }
 }

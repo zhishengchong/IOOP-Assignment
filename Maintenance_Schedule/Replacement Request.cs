@@ -8,6 +8,7 @@ namespace Maintenance_Schedule
     public partial class Replacement_Request : Form
     {
         private string connectionString = "Data Source=LEBRON\\SQLEXPRESS;Initial Catalog=IOOP-Assignment;Integrated Security=True;Encrypt=False;TrustServerCertificate=True;";
+        private int? editingRequestId = null;
         public Replacement_Request()
         {
             InitializeComponent();
@@ -75,60 +76,56 @@ namespace Maintenance_Schedule
         // Submit request
         private void btnSubmit_Click(object? sender, EventArgs e)
         {
-            string code = txtBoxFacilityCode.Text.Trim();
-            string name = txtBoxFacilityName.Text.Trim();
-
-            if (string.IsNullOrEmpty(code) || string.IsNullOrEmpty(name))
+            try
             {
-                MessageBox.Show("Please enter both Facility Code and Facility Name.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+                string code = txtBoxFacilityCode.Text.Trim();
+                string name = txtBoxFacilityName.Text.Trim();
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                try
+                if (string.IsNullOrEmpty(code) || string.IsNullOrEmpty(name))
                 {
-                    conn.Open();
+                    MessageBox.Show("Please enter both Facility Code and Facility Name.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
-                    
-                    string checkQuery = "SELECT [Facility Name] FROM [Replacement] WHERE [Facility Code] = @code";
-                    SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
-                    checkCmd.Parameters.AddWithValue("@code", code);
-
-                    object result = checkCmd.ExecuteScalar();
-
-                    if (result != null)
+                if (editingRequestId.HasValue)
+                {
+                    // Update existing request
+                    using (SqlConnection conn = new SqlConnection(connectionString))
                     {
-                        string existingName = result.ToString()!;
+                        conn.Open();
+                        string updateQuery = @"
+                    UPDATE [Replacement] 
+                    SET [Facility Name] = @name, 
+                        [Problem Description] = @problem, 
+                        [Request Type] = @type, 
+                        Status = @status 
+                    WHERE [Request ID] = @id";
 
-
-                        if (!string.Equals(existingName.Trim(), txtBoxFacilityName.Text.Trim(), StringComparison.OrdinalIgnoreCase))
-                        {
-                            MessageBox.Show(
-                                $"The facility code '{code}' already exists with the name '{existingName}'.\n" +
-                                "Please enter the correct facility name.",
-                                "Validation Error",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error
-                            );
-
-                            txtBoxFacilityName.Clear();
-                            txtBoxFacilityName.Focus();
-                            return;
-                        }
+                        SqlCommand cmd = new SqlCommand(updateQuery, conn);
+                        cmd.Parameters.AddWithValue("@name", txtBoxFacilityName.Text.Trim());
+                        cmd.Parameters.AddWithValue("@problem", richTxtBoxProblemDescription.Text.Trim());
+                        cmd.Parameters.AddWithValue("@type", comboBoxRequestType.SelectedItem?.ToString() ?? "Repair");
+                        cmd.Parameters.AddWithValue("@status", "Pending");
+                        cmd.Parameters.AddWithValue("@id", editingRequestId.Value);
+                        cmd.ExecuteNonQuery();
                     }
 
-
+                    MessageBox.Show("Request updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    editingRequestId = null;
+                    txtBoxFacilityCode.Enabled = true;
+                    LoadRequests();
+                }
+                else
+                {
+                    // Insert new request
                     SaveReplacementRequest();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error checking facility code: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving request: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
 
         private void SaveReplacementRequest()
         {
@@ -149,13 +146,13 @@ namespace Maintenance_Schedule
                     cmd.Parameters.AddWithValue("@problem", richTxtBoxProblemDescription.Text.Trim());
                     cmd.Parameters.AddWithValue("@type", comboBoxRequestType.SelectedItem?.ToString() ?? "Repair");
                     cmd.Parameters.AddWithValue("@date", DateTime.Now);
-                    cmd.Parameters.AddWithValue("@status", "Pending"); 
+                    cmd.Parameters.AddWithValue("@status", "Pending");
 
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Replacement request submitted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    LoadRequests(); 
+                    LoadRequests();
                 }
                 catch (Exception ex)
                 {
@@ -170,7 +167,82 @@ namespace Maintenance_Schedule
             this.Close();
         }
 
+        private void btnDelete_Click(object? sender, EventArgs e)
+        {
+            if (DataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a row to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Get the selected row
+            DataGridViewRow selectedRow = DataGridView1.SelectedRows[0];
+
+            // Get Request ID and Status
+            int requestId = Convert.ToInt32(selectedRow.Cells["Request ID"].Value);
+            string status = selectedRow.Cells["Status"].Value?.ToString() ?? "";
+
+            if (!string.Equals(status.Trim(), "Completed", StringComparison.OrdinalIgnoreCase))
+            {
+                MessageBox.Show("Only completed requests can be deleted.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Confirm deletion
+            var confirm = MessageBox.Show("Are you sure you want to delete this completed request?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (confirm != DialogResult.Yes) return;
+
+            // Delete from database
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string deleteQuery = "DELETE FROM [Replacement] WHERE [Request ID] = @id";
+                    SqlCommand cmd = new SqlCommand(deleteQuery, conn);
+                    cmd.Parameters.AddWithValue("@id", requestId);
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Request deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Refresh DataGridView
+                    LoadRequests();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error deleting request: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnEdit_Click(object? sender, EventArgs e)
+        {
+            if (DataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a row to edit.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Get selected row
+            DataGridViewRow selectedRow = DataGridView1.SelectedRows[0];
+
+            // Populate the form controls
+            txtBoxFacilityCode.Text = selectedRow.Cells["Facility Code"].Value?.ToString() ?? "";
+            txtBoxFacilityName.Text = selectedRow.Cells["Facility Name"].Value?.ToString() ?? "";
+            richTxtBoxProblemDescription.Text = selectedRow.Cells["Problem Description"].Value?.ToString() ?? "";
+            comboBoxRequestType.SelectedItem = selectedRow.Cells["Request Type"].Value?.ToString();
+
+            // Store the Request ID somewhere (e.g., hidden field or private variable)
+            editingRequestId = Convert.ToInt32(selectedRow.Cells["Request ID"].Value);
+
+            // Optionally, disable facility code editing if you want it immutable
+            txtBoxFacilityCode.Enabled = false;
+
+            MessageBox.Show("Make your changes in the form and click Submit to save.", "Edit Mode", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
     }
 }
+
     
 
