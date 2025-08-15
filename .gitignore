@@ -1,0 +1,15 @@
+# Visual Studio build & cache
+.vs/
+bin/
+obj/
+*.user
+*.suo
+
+# LocalDB / SQL Server database files - do NOT commit
+*.mdf
+*.ldf
+*.ndf
+*.bak
+
+# (optional) publish profiles
+**/Properties/PublishProfiles/*.pubxml*
