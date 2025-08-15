@@ -1,13 +1,14 @@
 using Microsoft.Data.SqlClient;
+using System;
 using System.Data;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace Maintenance_Schedule
 {
     public partial class Update_Profile : Form
     {
+        private string connectionString = "Server=LEBRON\\SQLEXPRESS;Database=IOOP-Assignment;Trusted_Connection=True;Encrypt=False;";
+
         public Update_Profile()
         {
             InitializeComponent();
@@ -15,46 +16,54 @@ namespace Maintenance_Schedule
 
         private void Update_Profile_Load(object sender, EventArgs e)
         {
-            string connectionString = "Server=LEBRON\\SQLEXPRESS;Database=IOOP-Assignment;Trusted_Connection=True;Encrypt=False;";
+            LoadStaffProfile();
+        }
 
+        private void LoadStaffProfile()
+        {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
 
-                // Correct SQL command syntax — you must use SELECT
-                SqlCommand cmd = new SqlCommand("SELECT * FROM [dbo].[Staff]", conn);
+                SqlCommand cmd = new SqlCommand(
+                    "SELECT TOP 1 [Staff ID], Name, Email, [Phone Number], Password " +
+                    "FROM [dbo].[Staff]", conn);
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
                 DataGridViewStaff.DataSource = dt;
+
+                // Fill textboxes with the staff's data
+                if (dt.Rows.Count > 0)
+                {
+                    txtBoxName.Text = dt.Rows[0]["Name"].ToString();
+                    txtBoxEmail.Text = dt.Rows[0]["Email"].ToString();
+                    txtBoxPhone.Text = dt.Rows[0]["Phone Number"].ToString();
+                    txtBoxPassword.Text = dt.Rows[0]["Password"].ToString();
+                }
             }
         }
 
         private void btnSaveProfile_Click(object sender, EventArgs e)
         {
-            string connectionString = "Server=LEBRON\\SQLEXPRESS;Database=IOOP-Assignment;Trusted_Connection=True;TrustServerCertificate=True;";
-
-            // Example: assumes you have txtName, txtEmail, txtPhone, txtPassword textboxes
             string name = txtBoxName.Text.Trim();
             string email = txtBoxEmail.Text.Trim();
             string phone = txtBoxPhone.Text.Trim();
             string password = txtBoxPassword.Text.Trim();
 
-            // You'll need to know which Staff ID to update
-            int staffId = Convert.ToInt32(txtBoxStaffId.Text);
-
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
 
+                // Update only the first staff found
                 string query = @"UPDATE Staff
-                         SET Name = @Name,
-                             Email = @Email,
-                             [Phone Number] = @Phone,
-                             Password = @Password
-                         WHERE [Staff ID] = @StaffID";
+                                 SET Name = @Name,
+                                     Email = @Email,
+                                     [Phone Number] = @Phone,
+                                     Password = @Password
+                                 WHERE [Staff ID] = (SELECT TOP 1 [Staff ID] FROM Staff)";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -62,17 +71,17 @@ namespace Maintenance_Schedule
                     cmd.Parameters.AddWithValue("@Email", email);
                     cmd.Parameters.AddWithValue("@Phone", phone);
                     cmd.Parameters.AddWithValue("@Password", password);
-                    cmd.Parameters.AddWithValue("@StaffID", staffId);
 
                     int rowsAffected = cmd.ExecuteNonQuery();
 
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Profile updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadStaffProfile(); // Refresh table
                     }
                     else
                     {
-                        MessageBox.Show("No profile was updated. Check Staff ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No profile was updated.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

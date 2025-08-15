@@ -39,35 +39,33 @@
             lblPhoneNumber = new Label();
             lblPassword = new Label();
             DataGridViewStaff = new DataGridView();
-            lblStaffID = new Label();
-            txtBoxStaffId = new TextBox();
             ((System.ComponentModel.ISupportInitialize)DataGridViewStaff).BeginInit();
             SuspendLayout();
             // 
             // txtBoxName
             // 
-            txtBoxName.Location = new Point(162, 269);
+            txtBoxName.Location = new Point(162, 239);
             txtBoxName.Name = "txtBoxName";
             txtBoxName.Size = new Size(343, 23);
             txtBoxName.TabIndex = 0;
             // 
             // txtBoxEmail
             // 
-            txtBoxEmail.Location = new Point(162, 319);
+            txtBoxEmail.Location = new Point(162, 286);
             txtBoxEmail.Name = "txtBoxEmail";
             txtBoxEmail.Size = new Size(343, 23);
             txtBoxEmail.TabIndex = 1;
             // 
             // txtBoxPhone
             // 
-            txtBoxPhone.Location = new Point(162, 371);
+            txtBoxPhone.Location = new Point(162, 334);
             txtBoxPhone.Name = "txtBoxPhone";
             txtBoxPhone.Size = new Size(343, 23);
             txtBoxPhone.TabIndex = 2;
             // 
             // txtBoxPassword
             // 
-            txtBoxPassword.Location = new Point(162, 423);
+            txtBoxPassword.Location = new Point(162, 387);
             txtBoxPassword.Name = "txtBoxPassword";
             txtBoxPassword.Size = new Size(343, 23);
             txtBoxPassword.TabIndex = 3;
@@ -95,7 +93,7 @@
             // lblName
             // 
             lblName.AutoSize = true;
-            lblName.Location = new Point(28, 272);
+            lblName.Location = new Point(28, 242);
             lblName.Name = "lblName";
             lblName.Size = new Size(45, 15);
             lblName.TabIndex = 6;
@@ -104,7 +102,7 @@
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(28, 322);
+            lblEmail.Location = new Point(28, 289);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(42, 15);
             lblEmail.TabIndex = 7;
@@ -113,7 +111,7 @@
             // lblPhoneNumber
             // 
             lblPhoneNumber.AutoSize = true;
-            lblPhoneNumber.Location = new Point(28, 374);
+            lblPhoneNumber.Location = new Point(28, 337);
             lblPhoneNumber.Name = "lblPhoneNumber";
             lblPhoneNumber.Size = new Size(91, 15);
             lblPhoneNumber.TabIndex = 8;
@@ -122,7 +120,7 @@
             // lblPassword
             // 
             lblPassword.AutoSize = true;
-            lblPassword.Location = new Point(28, 426);
+            lblPassword.Location = new Point(28, 390);
             lblPassword.Name = "lblPassword";
             lblPassword.Size = new Size(63, 15);
             lblPassword.TabIndex = 9;
@@ -136,30 +134,12 @@
             DataGridViewStaff.Size = new Size(776, 196);
             DataGridViewStaff.TabIndex = 10;
             // 
-            // lblStaffID
-            // 
-            lblStaffID.AutoSize = true;
-            lblStaffID.Location = new Point(28, 226);
-            lblStaffID.Name = "lblStaffID";
-            lblStaffID.Size = new Size(51, 15);
-            lblStaffID.TabIndex = 11;
-            lblStaffID.Text = "Staff ID :";
-            // 
-            // txtBoxStaffId
-            // 
-            txtBoxStaffId.Location = new Point(162, 223);
-            txtBoxStaffId.Name = "txtBoxStaffId";
-            txtBoxStaffId.Size = new Size(343, 23);
-            txtBoxStaffId.TabIndex = 12;
-            // 
             // Update_Profile
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Silver;
             ClientSize = new Size(800, 450);
-            Controls.Add(txtBoxStaffId);
-            Controls.Add(lblStaffID);
             Controls.Add(DataGridViewStaff);
             Controls.Add(lblPassword);
             Controls.Add(lblPhoneNumber);
@@ -192,7 +172,5 @@
         private Label lblPhoneNumber;
         private Label lblPassword;
         private DataGridView DataGridViewStaff;
-        private Label lblStaffID;
-        private TextBox txtBoxStaffId;
     }
 }

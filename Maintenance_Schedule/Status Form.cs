@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.SqlClient;
+using Microsoft.VisualBasic;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -7,227 +8,132 @@ namespace Maintenance_Schedule
 {
     public partial class Status_Form : Form
     {
+        private string connectionString = "Data Source=LEBRON\\SQLEXPRESS;Initial Catalog=IOOP-Assignment;Integrated Security=True;Encrypt=False;TrustServerCertificate=True;";
         private SqlDataAdapter? adapter;
         private DataTable? scheduleTable;
-        private string connectionString = "Data Source=LEBRON\\SQLEXPRESS;Initial Catalog=IOOP-Assignment;Integrated Security=True;Encrypt=False;TrustServerCertificate=True;";
-        private string[] allowedStatuses = { "Pending", "In Progress", "Completed" };
 
         public Status_Form()
         {
             InitializeComponent();
-        }
-
-        private void Status_Form_Load(object sender, EventArgs e)
-        {
-            // Populate Status ComboBox
-            comboBoxStatus.Items.Clear();
-            comboBoxStatus.Items.AddRange(allowedStatuses);
-
-            // Set default date
-            dateTimePickerTaskDate.Value = DateTime.Now;
-
+            comboBoxStatus.Items.AddRange(new string[] { "Pending", "In Progress", "Completed" });
+            comboBoxStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             LoadScheduleData();
-            SetupDataGridViewButtons();
         }
 
         private void LoadScheduleData()
         {
-            adapter = new SqlDataAdapter("SELECT [Schedule ID], [Facility Name], [Task Description], Status, Date FROM Schedule", connectionString);
-
-            // UPDATE command
-            adapter.UpdateCommand = new SqlCommand(
-                "UPDATE Schedule SET [Facility Name]=@FacilityName, [Task Description]=@TaskDescription, Status=@Status, Date=@Date WHERE [Schedule ID]=@ScheduleID",
-                new SqlConnection(connectionString));
-            adapter.UpdateCommand.Parameters.Add("@FacilityName", SqlDbType.NVarChar, 100, "Facility Name");
-            adapter.UpdateCommand.Parameters.Add("@TaskDescription", SqlDbType.NVarChar, 200, "Task Description");
-            adapter.UpdateCommand.Parameters.Add("@Status", SqlDbType.NVarChar, 50, "Status");
-            adapter.UpdateCommand.Parameters.Add("@Date", SqlDbType.DateTime, 0, "Date");
-            adapter.UpdateCommand.Parameters.Add("@ScheduleID", SqlDbType.Int, 0, "Schedule ID");
-
-            // DELETE command
-            adapter.DeleteCommand = new SqlCommand(
-                "DELETE FROM Schedule WHERE [Schedule ID]=@ScheduleID",
-                new SqlConnection(connectionString));
-            adapter.DeleteCommand.Parameters.Add("@ScheduleID", SqlDbType.Int, 0, "Schedule ID");
-
-            // INSERT command
-            adapter.InsertCommand = new SqlCommand(
-                "INSERT INTO Schedule ([Facility Name], [Task Description], Status, Date) " +
-                "VALUES (@FacilityName, @TaskDescription, @Status, @Date); SELECT SCOPE_IDENTITY()",
-                new SqlConnection(connectionString));
-            adapter.InsertCommand.Parameters.Add("@FacilityName", SqlDbType.NVarChar, 100, "Facility Name");
-            adapter.InsertCommand.Parameters.Add("@TaskDescription", SqlDbType.NVarChar, 200, "Task Description");
-            adapter.InsertCommand.Parameters.Add("@Status", SqlDbType.NVarChar, 50, "Status");
-            adapter.InsertCommand.Parameters.Add("@Date", SqlDbType.DateTime, 0, "Date");
-            adapter.InsertCommand.UpdatedRowSource = UpdateRowSource.FirstReturnedRecord;
-
-            // Fill DataTable
-            scheduleTable = new DataTable();
-            adapter.Fill(scheduleTable);
-
-            DataGridView1.DataSource = scheduleTable;
-            DataGridView1.AllowUserToAddRows = false;
-
-            DataGridView1.Columns["Facility Name"].ReadOnly = false;
-            DataGridView1.Columns["Task Description"].ReadOnly = false;
-            DataGridView1.Columns["Status"].ReadOnly = false;
-            DataGridView1.Columns["Date"].ReadOnly = false;
-        }
-
-        private void SetupDataGridViewButtons()
-        {
-            if (!DataGridView1.Columns.Contains("DeleteButton"))
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                DataGridViewButtonColumn deleteButton = new DataGridViewButtonColumn
-                {
-                    Name = "DeleteButton",
-                    HeaderText = "Delete",
-                    Text = "Delete",
-                    UseColumnTextForButtonValue = true
-                };
-                DataGridView1.Columns.Add(deleteButton);
-            }
-
-            if (!DataGridView1.Columns.Contains("EditButton"))
-            {
-                DataGridViewButtonColumn editButton = new DataGridViewButtonColumn
-                {
-                    Name = "EditButton",
-                    HeaderText = "Edit",
-                    Text = "Edit",
-                    UseColumnTextForButtonValue = true
-                };
-                DataGridView1.Columns.Add(editButton);
+                adapter = new SqlDataAdapter(
+                    "SELECT [Schedule ID], [Facility Name], [Task Description], Status, [Date], [Time] FROM Schedule",
+                    conn);
+                scheduleTable = new DataTable();
+                adapter.Fill(scheduleTable);
+                DataGridView1.DataSource = scheduleTable;
             }
         }
 
-        // ================= Add Task via TextBoxes =================
-        private void btnAddTask_Click(object sender, EventArgs e)
+        // ADD BUTTON
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtBoxFacilityName.Text) ||
                 string.IsNullOrWhiteSpace(txtBoxTaskDescription.Text) ||
-                comboBoxStatus.SelectedItem == null)
+                comboBoxStatus.SelectedIndex == -1)
             {
-                MessageBox.Show("Please fill all fields and select a status.");
+                MessageBox.Show("Please fill in all required fields.");
                 return;
             }
 
-            try
+            using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-                    SqlCommand insertCmd = new SqlCommand(
-                        "INSERT INTO Schedule ([Facility Name], [Task Description], Status, Date) " +
-                        "VALUES (@FacilityName, @TaskDescription, @Status, @Date)",
-                        conn);
-                    insertCmd.Parameters.AddWithValue("@FacilityName", txtBoxFacilityName.Text);
-                    insertCmd.Parameters.AddWithValue("@TaskDescription", txtBoxTaskDescription.Text);
-                    insertCmd.Parameters.AddWithValue("@Status", comboBoxStatus.SelectedItem.ToString());
-                    insertCmd.Parameters.AddWithValue("@Date", dateTimePickerTaskDate.Value);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(
+                    "INSERT INTO Schedule ([Facility Name], [Task Description], Status, [Date], [Time]) VALUES (@Facility, @Task, @Status, @Date, @Time)", conn);
+                cmd.Parameters.AddWithValue("@Facility", txtBoxFacilityName.Text ?? "");
+                cmd.Parameters.AddWithValue("@Task", txtBoxTaskDescription.Text ?? "");
+                cmd.Parameters.AddWithValue("@Status", comboBoxStatus.SelectedItem?.ToString() ?? "Pending");
+                cmd.Parameters.AddWithValue("@Date", datePicker.Value.Date);
+                cmd.Parameters.AddWithValue("@Time", timePicker.Value.TimeOfDay);
 
-                    insertCmd.ExecuteNonQuery();
-                }
-
-                MessageBox.Show("Task added successfully!");
-                LoadScheduleData();
-
-                txtBoxFacilityName.Clear();
-                txtBoxTaskDescription.Clear();
-                comboBoxStatus.SelectedIndex = -1;
+                cmd.ExecuteNonQuery();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error adding task: " + ex.Message);
-            }
+
+            LoadScheduleData();
+            MessageBox.Show("Task added successfully.");
         }
 
+        // EDIT BUTTON
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (DataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a row to edit.");
+                return;
+            }
+
+            DataGridViewRow row = DataGridView1.SelectedRows[0];
+            int scheduleId = Convert.ToInt32(row.Cells["Schedule ID"].Value);
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(
+                    "UPDATE Schedule SET [Facility Name] = @Facility, [Task Description] = @Task, Status = @Status, [Date] = @Date, [Time] = @Time WHERE [Schedule ID] = @ID", conn);
+                cmd.Parameters.AddWithValue("@Facility", txtBoxFacilityName.Text ?? "");
+                cmd.Parameters.AddWithValue("@Task", txtBoxTaskDescription.Text ?? "");
+                cmd.Parameters.AddWithValue("@Status", comboBoxStatus.SelectedItem?.ToString() ?? "Pending");
+                cmd.Parameters.AddWithValue("@Date", datePicker.Value.Date);
+                cmd.Parameters.AddWithValue("@Time", timePicker.Value.TimeOfDay);
+                cmd.Parameters.AddWithValue("@ID", scheduleId);
+
+                cmd.ExecuteNonQuery();
+            }
+
+            LoadScheduleData();
+            MessageBox.Show("Task updated successfully.");
+        }
+
+        // DELETE BUTTON
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (DataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a row to delete.");
+                return;
+            }
+
+            DataGridViewRow row = DataGridView1.SelectedRows[0];
+            int scheduleId = Convert.ToInt32(row.Cells["Schedule ID"].Value);
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("DELETE FROM Schedule WHERE [Schedule ID] = @ID", conn);
+                cmd.Parameters.AddWithValue("@ID", scheduleId);
+                cmd.ExecuteNonQuery();
+            }
+
+            LoadScheduleData();
+            MessageBox.Show("Task deleted successfully.");
+        }
+
+        // CANCEL BUTTON
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (scheduleTable != null)
-            {
-                scheduleTable.RejectChanges();
-                LoadScheduleData();
-            }
+            this.Close();
         }
 
-        // ================= DataGridView Edit/Delete =================
-        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        // WHEN ROW IS CLICKED, LOAD DETAILS INTO INPUT FIELDS
+        private void dataGridViewSchedule_SelectionChanged(object sender, EventArgs e)
         {
-            if (e.RowIndex < 0 || scheduleTable == null) return;
-
-            DataGridViewRow row = DataGridView1.Rows[e.RowIndex];
-
-            // DELETE BUTTON
-            if (DataGridView1.Columns[e.ColumnIndex].Name == "DeleteButton")
+            if (DataGridView1.SelectedRows.Count > 0)
             {
-                var confirm = MessageBox.Show("Delete this task?", "Confirm", MessageBoxButtons.YesNo);
-                if (confirm == DialogResult.Yes)
-                {
-                    try
-                    {
-                        int scheduleId = Convert.ToInt32(row.Cells["Schedule ID"].Value);
-                        using (SqlConnection conn = new SqlConnection(connectionString))
-                        {
-                            conn.Open();
-                            SqlCommand deleteCmd = new SqlCommand(
-                                "DELETE FROM Schedule WHERE [Schedule ID]=@ScheduleID",
-                                conn);
-                            deleteCmd.Parameters.AddWithValue("@ScheduleID", scheduleId);
-                            deleteCmd.ExecuteNonQuery();
-                        }
-                        LoadScheduleData();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Error deleting task: " + ex.Message);
-                    }
-                }
-            }
-
-            // EDIT BUTTON
-            if (DataGridView1.Columns[e.ColumnIndex].Name == "EditButton")
-            {
-                string newFacility = Microsoft.VisualBasic.Interaction.InputBox(
-                    "Enter Facility Name:", "Edit Task", row.Cells["Facility Name"].Value?.ToString() ?? "");
-
-                string newTask = Microsoft.VisualBasic.Interaction.InputBox(
-                    "Enter Task Description:", "Edit Task", row.Cells["Task Description"].Value?.ToString() ?? "");
-
-                string newStatus = Microsoft.VisualBasic.Interaction.InputBox(
-                    "Enter Status (Pending, In Progress, Completed):", "Edit Task", row.Cells["Status"].Value?.ToString() ?? "");
-
-                DateTime newDate;
-                string dateInput = Microsoft.VisualBasic.Interaction.InputBox(
-                    "Enter Date (yyyy-MM-dd):", "Edit Task", row.Cells["Date"].Value?.ToString() ?? "");
-                if (!DateTime.TryParse(dateInput, out newDate))
-                {
-                    newDate = (DateTime)row.Cells["Date"].Value!;
-                }
-
-                try
-                {
-                    int scheduleId = Convert.ToInt32(row.Cells["Schedule ID"].Value);
-                    using (SqlConnection conn = new SqlConnection(connectionString))
-                    {
-                        conn.Open();
-                        SqlCommand updateCmd = new SqlCommand(
-                            "UPDATE Schedule SET [Facility Name]=@FacilityName, [Task Description]=@TaskDescription, Status=@Status, Date=@Date WHERE [Schedule ID]=@ScheduleID",
-                            conn);
-                        updateCmd.Parameters.AddWithValue("@FacilityName", newFacility);
-                        updateCmd.Parameters.AddWithValue("@TaskDescription", newTask);
-                        updateCmd.Parameters.AddWithValue("@Status", newStatus);
-                        updateCmd.Parameters.AddWithValue("@Date", newDate);
-                        updateCmd.Parameters.AddWithValue("@ScheduleID", scheduleId);
-
-                        updateCmd.ExecuteNonQuery();
-                    }
-                    LoadScheduleData();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error updating task: " + ex.Message);
-                }
+                DataGridViewRow row = DataGridView1.SelectedRows[0];
+                txtBoxFacilityName.Text = row.Cells["Facility Name"].Value?.ToString();
+                txtBoxTaskDescription.Text = row.Cells["Task Description"].Value?.ToString();
+                comboBoxStatus.SelectedItem = row.Cells["Status"].Value?.ToString();
+                datePicker.Value = Convert.ToDateTime(row.Cells["Date"].Value);
+                timePicker.Value = DateTime.Today.Add((TimeSpan)row.Cells["Time"].Value);
             }
         }
     }

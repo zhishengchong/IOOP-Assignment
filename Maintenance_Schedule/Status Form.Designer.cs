@@ -37,21 +37,25 @@
             label1 = new Label();
             lblStatus = new Label();
             DataGridView1 = new DataGridView();
-            dateTimePickerDate = new DateTimePicker();
+            datePicker = new DateTimePicker();
             lblDate = new Label();
+            timePicker = new DateTimePicker();
+            lblTime = new Label();
+            btnEdit = new Button();
+            btnDelete = new Button();
             ((System.ComponentModel.ISupportInitialize)DataGridView1).BeginInit();
             SuspendLayout();
             // 
             // txtBoxFacilityName
             // 
-            txtBoxFacilityName.Location = new Point(188, 329);
+            txtBoxFacilityName.Location = new Point(123, 91);
             txtBoxFacilityName.Name = "txtBoxFacilityName";
             txtBoxFacilityName.Size = new Size(100, 23);
             txtBoxFacilityName.TabIndex = 1;
             // 
             // txtBoxTaskDescription
             // 
-            txtBoxTaskDescription.Location = new Point(188, 358);
+            txtBoxTaskDescription.Location = new Point(123, 141);
             txtBoxTaskDescription.Name = "txtBoxTaskDescription";
             txtBoxTaskDescription.Size = new Size(100, 23);
             txtBoxTaskDescription.TabIndex = 2;
@@ -59,14 +63,14 @@
             // comboBoxStatus
             // 
             comboBoxStatus.FormattingEnabled = true;
-            comboBoxStatus.Location = new Point(188, 385);
+            comboBoxStatus.Location = new Point(123, 186);
             comboBoxStatus.Name = "comboBoxStatus";
             comboBoxStatus.Size = new Size(100, 23);
             comboBoxStatus.TabIndex = 3;
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(249, 415);
+            btnAdd.Location = new Point(48, 329);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(75, 23);
             btnAdd.TabIndex = 4;
@@ -76,17 +80,18 @@
             // 
             // btnCancel
             // 
-            btnCancel.Location = new Point(413, 415);
+            btnCancel.Location = new Point(208, 384);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(75, 23);
             btnCancel.TabIndex = 5;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // lblFacilityName
             // 
             lblFacilityName.AutoSize = true;
-            lblFacilityName.Location = new Point(58, 332);
+            lblFacilityName.Location = new Point(12, 99);
             lblFacilityName.Name = "lblFacilityName";
             lblFacilityName.Size = new Size(85, 15);
             lblFacilityName.TabIndex = 7;
@@ -95,7 +100,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(44, 361);
+            label1.Location = new Point(12, 149);
             label1.Name = "label1";
             label1.Size = new Size(99, 15);
             label1.TabIndex = 8;
@@ -104,7 +109,7 @@
             // lblStatus
             // 
             lblStatus.AutoSize = true;
-            lblStatus.Location = new Point(98, 388);
+            lblStatus.Location = new Point(12, 194);
             lblStatus.Name = "lblStatus";
             lblStatus.Size = new Size(45, 15);
             lblStatus.TabIndex = 9;
@@ -113,27 +118,65 @@
             // DataGridView1
             // 
             DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGridView1.Location = new Point(12, 12);
+            DataGridView1.Location = new Point(366, 12);
             DataGridView1.Name = "DataGridView1";
-            DataGridView1.Size = new Size(776, 282);
+            DataGridView1.Size = new Size(422, 426);
             DataGridView1.TabIndex = 10;
-            DataGridView1.CellContentClick += DataGridView1_CellContentClick;
             // 
-            // dateTimePickerDate
+            // datePicker
             // 
-            dateTimePickerDate.Location = new Point(188, 300);
-            dateTimePickerDate.Name = "dateTimePickerDate";
-            dateTimePickerDate.Size = new Size(200, 23);
-            dateTimePickerDate.TabIndex = 11;
+            datePicker.Format = DateTimePickerFormat.Short;
+            datePicker.Location = new Point(123, 50);
+            datePicker.Name = "datePicker";
+            datePicker.Size = new Size(200, 23);
+            datePicker.TabIndex = 11;
             // 
             // lblDate
             // 
             lblDate.AutoSize = true;
-            lblDate.Location = new Point(106, 306);
+            lblDate.Location = new Point(12, 56);
             lblDate.Name = "lblDate";
             lblDate.Size = new Size(37, 15);
             lblDate.TabIndex = 12;
             lblDate.Text = "Date :";
+            // 
+            // timePicker
+            // 
+            timePicker.Format = DateTimePickerFormat.Time;
+            timePicker.Location = new Point(123, 239);
+            timePicker.Name = "timePicker";
+            timePicker.ShowUpDown = true;
+            timePicker.Size = new Size(200, 23);
+            timePicker.TabIndex = 13;
+            // 
+            // lblTime
+            // 
+            lblTime.AutoSize = true;
+            lblTime.Location = new Point(12, 245);
+            lblTime.Name = "lblTime";
+            lblTime.Size = new Size(40, 15);
+            lblTime.TabIndex = 14;
+            lblTime.Text = "Time :";
+            // 
+            // btnEdit
+            // 
+            btnEdit.Location = new Point(48, 384);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new Size(75, 23);
+            btnEdit.TabIndex = 15;
+            btnEdit.Text = "Edit";
+            btnEdit.UseVisualStyleBackColor = true;
+            btnEdit.Click += btnEdit_Click;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(208, 329);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(75, 23);
+            btnDelete.TabIndex = 16;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // Status_Form
             // 
@@ -141,8 +184,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Silver;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnDelete);
+            Controls.Add(btnEdit);
+            Controls.Add(lblTime);
+            Controls.Add(timePicker);
             Controls.Add(lblDate);
-            Controls.Add(dateTimePickerDate);
+            Controls.Add(datePicker);
             Controls.Add(DataGridView1);
             Controls.Add(lblStatus);
             Controls.Add(label1);
@@ -154,7 +201,6 @@
             Controls.Add(txtBoxFacilityName);
             Name = "Status_Form";
             Text = "Status Form";
-            Load += Status_Form_Load;
             ((System.ComponentModel.ISupportInitialize)DataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -170,7 +216,11 @@
         private Label label1;
         private Label lblStatus;
         private DataGridView DataGridView1;
-        private DateTimePicker dateTimePickerDate;
+        private DateTimePicker datePicker;
         private Label lblDate;
+        private DateTimePicker timePicker;
+        private Label lblTime;
+        private Button btnEdit;
+        private Button btnDelete;
     }
 }
