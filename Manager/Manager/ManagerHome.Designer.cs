@@ -53,6 +53,7 @@
             this.manUsers.TabIndex = 1;
             this.manUsers.Text = "Manage Users";
             this.manUsers.UseVisualStyleBackColor = true;
+            this.manUsers.Click += new System.EventHandler(this.manUsers_Click);
             // 
             // manFac
             // 
@@ -62,6 +63,7 @@
             this.manFac.TabIndex = 2;
             this.manFac.Text = "Manage Facilities";
             this.manFac.UseVisualStyleBackColor = true;
+            this.manFac.Click += new System.EventHandler(this.manFac_Click);
             // 
             // signMaint
             // 

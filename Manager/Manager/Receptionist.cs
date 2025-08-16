@@ -50,7 +50,7 @@ namespace Manager
             set { phoneNum = value; }
         }
 
-        public string addMaintenance()
+        public string addReceptionist()
         {
             string status;
 
@@ -58,7 +58,7 @@ namespace Manager
 
             SqlCommand cmd = new SqlCommand("Insert into ReceptionistStaff(Name, email, PhoneNumber) values(@name, @em,@num)", con);
 
-            SqlCommand cmd2 = new SqlCommand("Insert into Users(username, role, password) values(@name,'Maintenance','123')", con);
+            SqlCommand cmd2 = new SqlCommand("Insert into Users(username, role, password) values(@name,'Receptionist','123')", con);
             cmd.Parameters.AddWithValue("@name", this.receptName);
             cmd2.Parameters.AddWithValue("@name", this.receptName);
             cmd.Parameters.AddWithValue("@em", this.email);
@@ -136,6 +136,26 @@ namespace Manager
 
             con.Close();
 
+            return status;
+        }
+
+        public string deleteProfile()
+        {
+            string status;
+            con.Open();
+            string mysql;
+            mysql = "delete from ReceptionistStaff where Name='" + receptName + "'";
+            SqlCommand cmd = new SqlCommand(mysql, con);
+            int i = cmd.ExecuteNonQuery();
+            if (i != 0)
+            {
+                status = "Deleted Successfully";
+            }
+            else
+            {
+                status = "Unable to delete";
+            }
+            con.Close();
             return status;
         }
     }

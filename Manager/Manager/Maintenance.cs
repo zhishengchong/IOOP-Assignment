@@ -138,5 +138,25 @@ namespace Manager
 
             return status;
         }
+
+        public string deleteProfile()
+        {
+            string status;
+            con.Open();
+            string mysql;
+            mysql = "delete from MaintenanceStaff where Name='" + maintName + "'";
+            SqlCommand cmd = new SqlCommand(mysql, con);
+            int i = cmd.ExecuteNonQuery();
+            if (i != 0)
+            {
+                status = "Deleted Successfully";
+            }
+            else
+            {
+                status = "Unable to delete";
+            }
+            con.Close();
+            return status;
+        }
     }
 }

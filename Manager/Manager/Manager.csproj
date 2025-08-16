@@ -68,7 +68,49 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddFacility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddFacility.Designer.cs">
+      <DependentUpon>AddFacility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteFacility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteFacility.Designer.cs">
+      <DependentUpon>DeleteFacility.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteUsers.Designer.cs">
+      <DependentUpon>DeleteUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditFacility.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditFacility.Designer.cs">
+      <DependentUpon>EditFacility.cs</DependentUpon>
+    </Compile>
     <Compile Include="Facilities.cs" />
+    <Compile Include="FacilityManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FacilityManagement.Designer.cs">
+      <DependentUpon>FacilityManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserManagement.Designer.cs">
+      <DependentUpon>UserManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Maintenance.cs" />
     <Compile Include="ManagerHome.cs">
       <SubType>Form</SubType>
@@ -79,8 +121,26 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Receptionist.cs" />
-    <Compile Include="Reports.cs" />
+    <Compile Include="Requests.cs" />
     <Compile Include="Schedule.cs" />
+    <EmbeddedResource Include="AddFacility.resx">
+      <DependentUpon>AddFacility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteFacility.resx">
+      <DependentUpon>DeleteFacility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteUsers.resx">
+      <DependentUpon>DeleteUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditFacility.resx">
+      <DependentUpon>EditFacility.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FacilityManagement.resx">
+      <DependentUpon>FacilityManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ManagerHome.resx">
       <DependentUpon>ManagerHome.cs</DependentUpon>
     </EmbeddedResource>
@@ -93,6 +153,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserManagement.resx">
+      <DependentUpon>UserManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

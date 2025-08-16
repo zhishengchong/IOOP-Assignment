@@ -16,5 +16,17 @@ namespace Manager
         {
             InitializeComponent();
         }
+
+        private void manUsers_Click(object sender, EventArgs e)
+        {
+            UserManagement uM = new UserManagement();
+            uM.Show();
+        }
+
+        private void manFac_Click(object sender, EventArgs e)
+        {
+            FacilityManagement fM = new FacilityManagement();
+            fM.Show();
+        }
     }
 }
