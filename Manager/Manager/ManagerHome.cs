@@ -28,5 +28,17 @@ namespace Manager
             FacilityManagement fM = new FacilityManagement();
             fM.Show();
         }
+
+        private void signMaint_Click(object sender, EventArgs e)
+        {
+            AssignMaintenance aM = new AssignMaintenance();
+            aM.Show();
+        }
+
+        private void viewReq_Click(object sender, EventArgs e)
+        {
+            RequestsMenu rM = new RequestsMenu();
+            rM.Show();
+        }
     }
 }

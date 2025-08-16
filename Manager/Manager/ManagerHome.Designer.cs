@@ -73,6 +73,7 @@
             this.signMaint.TabIndex = 3;
             this.signMaint.Text = "Assign Maintenance";
             this.signMaint.UseVisualStyleBackColor = true;
+            this.signMaint.Click += new System.EventHandler(this.signMaint_Click);
             // 
             // viewReq
             // 
@@ -82,6 +83,7 @@
             this.viewReq.TabIndex = 4;
             this.viewReq.Text = "View Requests";
             this.viewReq.UseVisualStyleBackColor = true;
+            this.viewReq.Click += new System.EventHandler(this.viewReq_Click);
             // 
             // ManagerHome
             // 

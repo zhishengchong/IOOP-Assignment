@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,6 +28,24 @@ namespace Manager
         {
             DeleteUsers dU = new DeleteUsers();
             dU.Show();
+        }
+
+        private void UserManagement_Load(object sender, EventArgs e)
+        {
+            ArrayList maintenance = new ArrayList();
+            ArrayList receptionist = new ArrayList();
+
+            maintenance = Maintenance.viewAll();
+            foreach (var itemM in maintenance)
+            {
+                listBox1.Items.Add(itemM);
+            }
+
+            receptionist = Receptionist.viewAll();
+            foreach (var itemR in receptionist)
+            {
+                listBox2.Items.Add(itemR);
+            }
         }
     }
 }

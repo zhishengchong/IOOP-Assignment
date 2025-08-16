@@ -80,6 +80,12 @@
     <Compile Include="AddUser.Designer.cs">
       <DependentUpon>AddUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="AssignMaintenance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssignMaintenance.Designer.cs">
+      <DependentUpon>AssignMaintenance.cs</DependentUpon>
+    </Compile>
     <Compile Include="DeleteFacility.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,18 @@
     <Compile Include="FacilityManagement.Designer.cs">
       <DependentUpon>FacilityManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="RequestsMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RequestsMenu.Designer.cs">
+      <DependentUpon>RequestsMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScheduleMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScheduleMenu.Designer.cs">
+      <DependentUpon>ScheduleMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddUser.resx">
       <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AssignMaintenance.resx">
+      <DependentUpon>AssignMaintenance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeleteFacility.resx">
       <DependentUpon>DeleteFacility.cs</DependentUpon>
@@ -153,6 +174,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RequestsMenu.resx">
+      <DependentUpon>RequestsMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScheduleMenu.resx">
+      <DependentUpon>ScheduleMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserManagement.resx">
       <DependentUpon>UserManagement.cs</DependentUpon>
     </EmbeddedResource>

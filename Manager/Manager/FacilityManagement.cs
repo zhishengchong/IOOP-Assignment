@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,17 @@ namespace Manager
         public FacilityManagement()
         {
             InitializeComponent();
+        }
+
+        private void FacilityManagement_Load(object sender, EventArgs e)
+        {
+            ArrayList facilities = new ArrayList();
+            facilities = Facilities.viewAll();
+
+            foreach (var item in facilities)
+            {
+                listBox1.Items.Add(item);
+            }
         }
     }
 }
