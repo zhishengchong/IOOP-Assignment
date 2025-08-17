@@ -1,15 +1,10 @@
-﻿namespace ARFMS.StudentApp.UI
+namespace ARFMS.StudentApp.UI
 {
     partial class StudentDashboardForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
         /// Clean up any resources being used.
-        /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
@@ -22,10 +17,6 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             this.tabMain = new System.Windows.Forms.TabControl();
@@ -49,7 +40,6 @@
             this.numRating = new System.Windows.Forms.NumericUpDown();
             this.gridMyReviews = new System.Windows.Forms.DataGridView();
             this.btnSubmitReview = new System.Windows.Forms.Button();
-            this.txtComments = new System.Windows.Forms.TextBox();
             this.lblRating = new System.Windows.Forms.Label();
             this.lblReviewFacility = new System.Windows.Forms.Label();
             this.tabProfile = new System.Windows.Forms.TabPage();
@@ -62,6 +52,9 @@
             this.txtProfileName = new System.Windows.Forms.TextBox();
             this.lblProfileName = new System.Windows.Forms.Label();
             this.btnSaveProfile = new System.Windows.Forms.Button();
+            this.btnDeleteReview = new System.Windows.Forms.Button();
+            this.lblAddComments = new System.Windows.Forms.Label();
+            this.txtComments = new System.Windows.Forms.TextBox();
             this.tabMain.SuspendLayout();
             this.tabFacilities.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridFacilities)).BeginInit();
@@ -240,11 +233,13 @@
             // 
             // tabReviews
             // 
+            this.tabReviews.Controls.Add(this.lblAddComments);
+            this.tabReviews.Controls.Add(this.txtComments);
+            this.tabReviews.Controls.Add(this.btnDeleteReview);
             this.tabReviews.Controls.Add(this.cboFacilityForReview);
             this.tabReviews.Controls.Add(this.numRating);
             this.tabReviews.Controls.Add(this.gridMyReviews);
             this.tabReviews.Controls.Add(this.btnSubmitReview);
-            this.tabReviews.Controls.Add(this.txtComments);
             this.tabReviews.Controls.Add(this.lblRating);
             this.tabReviews.Controls.Add(this.lblReviewFacility);
             this.tabReviews.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -259,14 +254,14 @@
             // cboFacilityForReview
             // 
             this.cboFacilityForReview.FormattingEnabled = true;
-            this.cboFacilityForReview.Location = new System.Drawing.Point(347, 390);
+            this.cboFacilityForReview.Location = new System.Drawing.Point(347, 363);
             this.cboFacilityForReview.Name = "cboFacilityForReview";
             this.cboFacilityForReview.Size = new System.Drawing.Size(180, 24);
             this.cboFacilityForReview.TabIndex = 11;
             // 
             // numRating
             // 
-            this.numRating.Location = new System.Drawing.Point(347, 420);
+            this.numRating.Location = new System.Drawing.Point(347, 393);
             this.numRating.Maximum = new decimal(new int[] {
             5,
             0,
@@ -299,25 +294,17 @@
             // 
             // btnSubmitReview
             // 
-            this.btnSubmitReview.Location = new System.Drawing.Point(361, 463);
+            this.btnSubmitReview.Location = new System.Drawing.Point(361, 454);
             this.btnSubmitReview.Name = "btnSubmitReview";
             this.btnSubmitReview.Size = new System.Drawing.Size(150, 30);
             this.btnSubmitReview.TabIndex = 8;
             this.btnSubmitReview.Text = "Submit Review";
             this.btnSubmitReview.UseVisualStyleBackColor = true;
             // 
-            // txtComments
-            // 
-            this.txtComments.Location = new System.Drawing.Point(668, 482);
-            this.txtComments.Multiline = true;
-            this.txtComments.Name = "txtComments";
-            this.txtComments.Size = new System.Drawing.Size(180, 23);
-            this.txtComments.TabIndex = 7;
-            // 
             // lblRating
             // 
             this.lblRating.AutoSize = true;
-            this.lblRating.Location = new System.Drawing.Point(258, 420);
+            this.lblRating.Location = new System.Drawing.Point(285, 395);
             this.lblRating.Name = "lblRating";
             this.lblRating.Size = new System.Drawing.Size(58, 16);
             this.lblRating.TabIndex = 6;
@@ -326,7 +313,7 @@
             // lblReviewFacility
             // 
             this.lblReviewFacility.AutoSize = true;
-            this.lblReviewFacility.Location = new System.Drawing.Point(258, 393);
+            this.lblReviewFacility.Location = new System.Drawing.Point(279, 366);
             this.lblReviewFacility.Name = "lblReviewFacility";
             this.lblReviewFacility.Size = new System.Drawing.Size(65, 16);
             this.lblReviewFacility.TabIndex = 5;
@@ -429,6 +416,31 @@
             this.btnSaveProfile.Text = "Save Profile";
             this.btnSaveProfile.UseVisualStyleBackColor = true;
             // 
+            // btnDeleteReview
+            // 
+            this.btnDeleteReview.Location = new System.Drawing.Point(361, 490);
+            this.btnDeleteReview.Name = "btnDeleteReview";
+            this.btnDeleteReview.Size = new System.Drawing.Size(150, 30);
+            this.btnDeleteReview.TabIndex = 12;
+            this.btnDeleteReview.Text = "Delete Review";
+            this.btnDeleteReview.UseVisualStyleBackColor = true;
+            // 
+            // lblAddComments
+            // 
+            this.lblAddComments.AutoSize = true;
+            this.lblAddComments.Location = new System.Drawing.Point(221, 424);
+            this.lblAddComments.Name = "lblAddComments";
+            this.lblAddComments.Size = new System.Drawing.Size(123, 16);
+            this.lblAddComments.TabIndex = 14;
+            this.lblAddComments.Text = "Add Comments:";
+            // 
+            // txtComments
+            // 
+            this.txtComments.Location = new System.Drawing.Point(347, 422);
+            this.txtComments.Name = "txtComments";
+            this.txtComments.Size = new System.Drawing.Size(180, 23);
+            this.txtComments.TabIndex = 13;
+            // 
             // StudentDashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -475,7 +487,6 @@
         private System.Windows.Forms.Label lblLocation;
         private System.Windows.Forms.Button btnLoadAll;
         private System.Windows.Forms.Button btnBook;
-        private System.Windows.Forms.TextBox txtComments;
         private System.Windows.Forms.Label lblRating;
         private System.Windows.Forms.Label lblReviewFacility;
         private System.Windows.Forms.Button btnSubmitReview;
@@ -491,5 +502,8 @@
         private System.Windows.Forms.TextBox txtProfilePhone;
         private System.Windows.Forms.TextBox txtProfileEmail;
         private System.Windows.Forms.ComboBox cboFacilityForReview;
+        private System.Windows.Forms.Button btnDeleteReview;
+        private System.Windows.Forms.Label lblAddComments;
+        private System.Windows.Forms.TextBox txtComments;
     }
 }
