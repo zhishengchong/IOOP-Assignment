@@ -225,13 +225,12 @@ namespace ARFMS.StudentApp.UI
 
             int facilityId = Convert.ToInt32(cboFacilityForReview.SelectedValue);
             int rating = (int)numRating.Value;
-            string comments = txtComments.Text.Trim();
+            string comments = ""; 
 
             try
             {
                 _reviews.Add(_current.StudentID, facilityId, rating, comments);
                 MessageBox.Show("Review submitted. Thank you!");
-                txtComments.Clear();
                 numRating.Value = 5;
                 RefreshMyReviews();
             }
@@ -240,7 +239,7 @@ namespace ARFMS.StudentApp.UI
                 MessageBox.Show("Submit failed: " + ex.Message);
             }
         }
-
+        
         // ---------- Profile ----------
         private void BtnSaveProfile_Click(object sender, EventArgs e)
         {
@@ -256,6 +255,11 @@ namespace ARFMS.StudentApp.UI
             {
                 MessageBox.Show("Update failed: " + ex.Message);
             }
+        }
+
+        private void txtComments_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
