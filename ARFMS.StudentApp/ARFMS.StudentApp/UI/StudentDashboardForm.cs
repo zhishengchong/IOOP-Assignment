@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Windows.Forms;
 using ARFMS.StudentApp.Data;
@@ -19,9 +19,7 @@ namespace ARFMS.StudentApp.UI
         public StudentDashboardForm()
         {
             InitializeComponent();
-            // attach Load in case Designer didn't wire it
             this.Load += StudentDashboardForm_Load;
-            // set a safe dummy student so Designer doesn't crash if code inspects _current
             _current = new Student();
         }
 
@@ -33,10 +31,8 @@ namespace ARFMS.StudentApp.UI
 
         private void StudentDashboardForm_Load(object sender, EventArgs e)
         {
-            // Prevent Designer from executing runtime-only code
             if (LicenseManager.UsageMode == LicenseUsageMode.Designtime) return;
 
-            // initialize UI values and wire button clicks
             this.Text = $"ARFMS - Student | Welcome, {_current?.Name}";
 
             // Facilities
@@ -52,6 +48,8 @@ namespace ARFMS.StudentApp.UI
 
             // Reviews
             btnSubmitReview.Click += BtnSubmitReview_Click;
+            btnDeleteReview.Click += BtnDeleteReview_Click; // NEW
+            lblAddComments.Click += LblAddComments_Click;   // NEW
             LoadFacilitiesIntoCombo();
 
             // Profile
@@ -225,13 +223,17 @@ namespace ARFMS.StudentApp.UI
 
             int facilityId = Convert.ToInt32(cboFacilityForReview.SelectedValue);
             int rating = (int)numRating.Value;
-            string comments = ""; 
+
+            // Use any text in the comment box (can be empty)
+            string comments = txtComments.Text.Trim();
 
             try
             {
                 _reviews.Add(_current.StudentID, facilityId, rating, comments);
                 MessageBox.Show("Review submitted. Thank you!");
+
                 numRating.Value = 5;
+                txtComments.Clear();
                 RefreshMyReviews();
             }
             catch (Exception ex)
@@ -239,7 +241,60 @@ namespace ARFMS.StudentApp.UI
                 MessageBox.Show("Submit failed: " + ex.Message);
             }
         }
-        
+
+        // Add comments
+        private void LblAddComments_Click(object sender, EventArgs e)
+        {
+            if (cboFacilityForReview.SelectedValue == null || string.IsNullOrWhiteSpace(txtComments.Text))
+            {
+                MessageBox.Show("Please select a facility and enter your comment.");
+                return;
+            }
+
+            int facilityId = Convert.ToInt32(cboFacilityForReview.SelectedValue);
+            string comments = txtComments.Text.Trim();
+
+            try
+            {
+                // rating = 0 since you're only adding a comment
+                _reviews.Add(_current.StudentID, facilityId, 0, comments);
+                MessageBox.Show("Comment added successfully!");
+
+                txtComments.Clear();    
+                RefreshMyReviews();      
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to add comment: " + ex.Message);
+            }
+        }
+
+        // NEW: Delete review
+        private void BtnDeleteReview_Click(object sender, EventArgs e)
+        {
+            if (gridMyReviews.CurrentRow == null)
+            {
+                MessageBox.Show("Select a review to delete.");
+                return;
+            }
+
+            int reviewId = Convert.ToInt32(gridMyReviews.CurrentRow.Cells["ReviewID"].Value);
+
+            if (MessageBox.Show("Delete this review?", "Confirm", MessageBoxButtons.YesNo) != DialogResult.Yes)
+                return;
+
+            try
+            {
+                _reviews.Delete(reviewId);
+                MessageBox.Show("Review deleted successfully!");
+                RefreshMyReviews();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed to delete review: " + ex.Message);
+            }
+        }
+
         // ---------- Profile ----------
         private void BtnSaveProfile_Click(object sender, EventArgs e)
         {
@@ -255,11 +310,6 @@ namespace ARFMS.StudentApp.UI
             {
                 MessageBox.Show("Update failed: " + ex.Message);
             }
-        }
-
-        private void txtComments_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
