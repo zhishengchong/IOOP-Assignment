@@ -11,7 +11,7 @@ namespace ARFMS.StudentApp.UI
         public LoginForm()
         {
             InitializeComponent();
-            this.AcceptButton = btnLogin; // pressing Enter triggers login
+            this.AcceptButton = btnLogin;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
