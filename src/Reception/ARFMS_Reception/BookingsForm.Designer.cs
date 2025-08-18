@@ -280,6 +280,7 @@
             this.Controls.Add(this.gbBooking);
             this.Name = "BookingsForm";
             this.Text = "BookingsForm";
+            this.Load += new System.EventHandler(this.BookingsForm_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBookings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBHours)).EndInit();
             this.gbBooking.ResumeLayout(false);

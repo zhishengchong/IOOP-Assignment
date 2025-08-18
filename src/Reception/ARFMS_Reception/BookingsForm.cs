@@ -135,8 +135,6 @@ namespace ARFMS_Reception
                 txtBTotal.Text = (rate * (int)nudBHours.Value).ToString("0.00");
             }
         }
-
-        // 事件处理：全部只做刷新价格/合计
         private void CboFacility_SelectedIndexChanged(object s, EventArgs e) => UpdateRateTotal();
         private void NudHours_ValueChanged(object s, EventArgs e) => UpdateRateTotal();
         private void DtpStart_ValueChanged(object s, EventArgs e) => UpdateRateTotal();
@@ -157,7 +155,6 @@ namespace ARFMS_Reception
             using (var conn = Db.Conn())
             {
                 conn.Open();
-                // 冲突检查：如果有重叠时间则拒绝
                 using (var chk = new SqlCommand(@"
                     SELECT COUNT(*) FROM dbo.Booking
                     WHERE FacilityID=@fid AND NOT (@EndAt <= StartAt OR @StartAt >= EndAt)", conn))
@@ -190,5 +187,10 @@ namespace ARFMS_Reception
         }
 
         private void btnBSearch_Click(object sender, EventArgs e) => LoadBookings(txtBSearch.Text);
+
+        private void BookingsForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
