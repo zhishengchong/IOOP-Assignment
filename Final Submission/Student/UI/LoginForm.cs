@@ -47,5 +47,10 @@ namespace ARFMS.StudentApp.UI
                 MessageBox.Show("Login error: " + ex.Message);
             }
         }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

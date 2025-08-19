@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace Maintenance_Schedule
+namespace Final_Submission_compile
 {
     internal static class Program
     {

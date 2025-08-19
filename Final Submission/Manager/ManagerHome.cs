@@ -40,5 +40,10 @@ namespace Manager
             RequestsMenu rM = new RequestsMenu();
             rM.Show();
         }
+
+        private void ManagerHome_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -136,5 +136,10 @@ namespace Maintenance_Schedule
                 timePicker.Value = DateTime.Today.Add((TimeSpan)row.Cells["Time"].Value);
             }
         }
+
+        private void Status_Form_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

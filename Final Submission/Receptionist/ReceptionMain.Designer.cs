@@ -28,52 +28,57 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnStudents = new System.Windows.Forms.Button();
-            this.btnBookings = new System.Windows.Forms.Button();
-            this.btnPayments = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            btnStudents = new Button();
+            btnBookings = new Button();
+            btnPayments = new Button();
+            SuspendLayout();
             // 
             // btnStudents
             // 
-            this.btnStudents.Font = new System.Drawing.Font("SimSun", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnStudents.Location = new System.Drawing.Point(27, 60);
-            this.btnStudents.Name = "btnStudents";
-            this.btnStudents.Size = new System.Drawing.Size(165, 50);
-            this.btnStudents.TabIndex = 0;
-            this.btnStudents.Text = "Students";
-            this.btnStudents.UseVisualStyleBackColor = true;
+            btnStudents.Font = new Font("SimSun", 16F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            btnStudents.Location = new Point(21, 50);
+            btnStudents.Margin = new Padding(2, 2, 2, 2);
+            btnStudents.Name = "btnStudents";
+            btnStudents.Size = new Size(128, 42);
+            btnStudents.TabIndex = 0;
+            btnStudents.Text = "Students";
+            btnStudents.UseVisualStyleBackColor = true;
             // 
             // btnBookings
             // 
-            this.btnBookings.Font = new System.Drawing.Font("SimSun", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnBookings.Location = new System.Drawing.Point(27, 132);
-            this.btnBookings.Name = "btnBookings";
-            this.btnBookings.Size = new System.Drawing.Size(165, 50);
-            this.btnBookings.TabIndex = 1;
-            this.btnBookings.Text = "Bookings";
-            this.btnBookings.UseVisualStyleBackColor = true;
+            btnBookings.Font = new Font("SimSun", 16F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            btnBookings.Location = new Point(21, 110);
+            btnBookings.Margin = new Padding(2, 2, 2, 2);
+            btnBookings.Name = "btnBookings";
+            btnBookings.Size = new Size(128, 42);
+            btnBookings.TabIndex = 1;
+            btnBookings.Text = "Bookings";
+            btnBookings.UseVisualStyleBackColor = true;
             // 
             // btnPayments
             // 
-            this.btnPayments.Font = new System.Drawing.Font("SimSun", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnPayments.Location = new System.Drawing.Point(27, 204);
-            this.btnPayments.Name = "btnPayments";
-            this.btnPayments.Size = new System.Drawing.Size(165, 50);
-            this.btnPayments.TabIndex = 2;
-            this.btnPayments.Text = "Payments";
-            this.btnPayments.UseVisualStyleBackColor = true;
+            btnPayments.Font = new Font("SimSun", 16F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            btnPayments.Location = new Point(21, 170);
+            btnPayments.Margin = new Padding(2, 2, 2, 2);
+            btnPayments.Name = "btnPayments";
+            btnPayments.Size = new Size(128, 42);
+            btnPayments.TabIndex = 2;
+            btnPayments.Text = "Payments";
+            btnPayments.UseVisualStyleBackColor = true;
             // 
             // ReceptionMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 354);
-            this.Controls.Add(this.btnPayments);
-            this.Controls.Add(this.btnBookings);
-            this.Controls.Add(this.btnStudents);
-            this.Name = "ReceptionMain";
-            this.Text = "ReceptionMainMenu";
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(383, 295);
+            Controls.Add(btnPayments);
+            Controls.Add(btnBookings);
+            Controls.Add(btnStudents);
+            Margin = new Padding(2, 2, 2, 2);
+            Name = "ReceptionMain";
+            Text = "ReceptionMainMenu";
+            Load += ReceptionMain_Load;
+            ResumeLayout(false);
 
         }
 

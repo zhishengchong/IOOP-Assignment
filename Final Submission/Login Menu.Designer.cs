@@ -1,4 +1,4 @@
-﻿namespace Maintenance_Schedule
+﻿namespace Final_Submission_compile
 {
     partial class Login_Menu
     {
@@ -98,6 +98,15 @@
             label1.Size = new Size(173, 59);
             label1.TabIndex = 6;
             label1.Text = "Login";
+            // lblError
+            lblError = new Label();
+            lblError.AutoSize = true;
+            lblError.ForeColor = Color.Red;
+            lblError.Location = new Point(258, 300);
+            lblError.Name = "lblError";
+            lblError.Size = new Size(300, 15);
+            lblError.Text = "";
+            Controls.Add(lblError);
             // 
             // Login_Menu
             // 
@@ -127,5 +136,6 @@
         private Button btnLogin;
         private Button btnExit;
         private Label label1;
+        private Label lblError;
     }
 }

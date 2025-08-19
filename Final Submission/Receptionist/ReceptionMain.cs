@@ -61,5 +61,10 @@ namespace ARFMS_Reception
                                 "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void ReceptionMain_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

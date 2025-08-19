@@ -28,96 +28,105 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.lblError = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            txtEmail = new TextBox();
+            lblEmail = new Label();
+            btnLogin = new Button();
+            lblPassword = new Label();
+            txtPassword = new TextBox();
+            lblTitle = new Label();
+            lblError = new Label();
+            SuspendLayout();
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(389, 171);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(200, 20);
-            this.txtEmail.TabIndex = 0;
+            txtEmail.Location = new Point(454, 197);
+            txtEmail.Margin = new Padding(4, 3, 4, 3);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(233, 23);
+            txtEmail.TabIndex = 0;
             // 
             // lblEmail
             // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(262, 167);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(74, 25);
-            this.lblEmail.TabIndex = 1;
-            this.lblEmail.Text = "Email";
+            lblEmail.AutoSize = true;
+            lblEmail.Font = new Font("Verdana", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblEmail.Location = new Point(306, 193);
+            lblEmail.Margin = new Padding(4, 0, 4, 0);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(74, 25);
+            lblEmail.TabIndex = 1;
+            lblEmail.Text = "Email";
             // 
             // btnLogin
             // 
-            this.btnLogin.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(350, 299);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(100, 40);
-            this.btnLogin.TabIndex = 2;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            btnLogin.Font = new Font("Verdana", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogin.Location = new Point(408, 345);
+            btnLogin.Margin = new Padding(4, 3, 4, 3);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Size = new Size(117, 46);
+            btnLogin.TabIndex = 2;
+            btnLogin.Text = "Login";
+            btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.Click += btnLogin_Click;
             // 
             // lblPassword
             // 
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassword.Location = new System.Drawing.Point(262, 197);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(122, 25);
-            this.lblPassword.TabIndex = 3;
-            this.lblPassword.Text = "Password";
+            lblPassword.AutoSize = true;
+            lblPassword.Font = new Font("Verdana", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblPassword.Location = new Point(306, 227);
+            lblPassword.Margin = new Padding(4, 0, 4, 0);
+            lblPassword.Name = "lblPassword";
+            lblPassword.Size = new Size(122, 25);
+            lblPassword.TabIndex = 3;
+            lblPassword.Text = "Password";
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(389, 201);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(200, 20);
-            this.txtPassword.TabIndex = 4;
+            txtPassword.Location = new Point(454, 232);
+            txtPassword.Margin = new Padding(4, 3, 4, 3);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(233, 23);
+            txtPassword.TabIndex = 4;
             // 
             // lblTitle
             // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(266, 40);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(274, 25);
-            this.lblTitle.TabIndex = 5;
-            this.lblTitle.Text = "ARFMS – Student Login";
+            lblTitle.AutoSize = true;
+            lblTitle.Font = new Font("Verdana", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitle.Location = new Point(310, 46);
+            lblTitle.Margin = new Padding(4, 0, 4, 0);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Size = new Size(274, 25);
+            lblTitle.TabIndex = 5;
+            lblTitle.Text = "ARFMS – Student Login";
             // 
             // lblError
             // 
-            this.lblError.AutoSize = true;
-            this.lblError.Font = new System.Drawing.Font("Verdana", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(401, 271);
-            this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(0, 25);
-            this.lblError.TabIndex = 6;
+            lblError.AutoSize = true;
+            lblError.Font = new Font("Verdana", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblError.ForeColor = Color.Red;
+            lblError.Location = new Point(468, 313);
+            lblError.Margin = new Padding(4, 0, 4, 0);
+            lblError.Name = "lblError";
+            lblError.Size = new Size(0, 25);
+            lblError.TabIndex = 6;
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblError);
-            this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.lblPassword);
-            this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.txtEmail);
-            this.Name = "LoginForm";
-            this.Text = "LoginForm";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(933, 519);
+            Controls.Add(lblError);
+            Controls.Add(lblTitle);
+            Controls.Add(txtPassword);
+            Controls.Add(lblPassword);
+            Controls.Add(btnLogin);
+            Controls.Add(lblEmail);
+            Controls.Add(txtEmail);
+            Margin = new Padding(4, 3, 4, 3);
+            Name = "LoginForm";
+            Text = "LoginForm";
+            Load += LoginForm_Load;
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
