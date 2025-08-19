@@ -31,5 +31,10 @@ namespace Manager
                 MessageBox.Show("Error deleting facility.");
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
