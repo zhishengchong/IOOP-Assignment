@@ -106,5 +106,10 @@ namespace ARFMS_Reception
 
             LoadStudents();
         }
+
+        private void StudentsForm_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

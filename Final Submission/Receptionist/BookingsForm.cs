@@ -79,7 +79,7 @@ namespace ARFMS_Reception
         {
             using (var conn = Db.Conn())
             using (var da = new SqlDataAdapter(
-                "SELECT FacilityID, FacilityName, FacilityCode, RatePerHour FROM dbo.Facility ORDER BY FacilityName", conn))
+                "SELECT FacilityID, FacilityName, FacilityCode, RatePerHour FROM dbo.Facility1 ORDER BY FacilityName", conn))
             {
                 var dt = new DataTable(); da.Fill(dt);
                 _rates.Clear();
@@ -107,7 +107,7 @@ namespace ARFMS_Reception
                        b.StartAt, b.EndAt, b.Hours, b.RatePerHour, b.TotalCost
                 FROM dbo.Booking b
                 JOIN dbo.Student s ON b.StudentID=s.StudentID
-                JOIN dbo.Facility f ON b.FacilityID=f.FacilityID
+                JOIN dbo.Facility1 f ON b.FacilityID=f.FacilityID
                 WHERE (@kw IS NULL) OR (s.Name LIKE @kw OR f.FacilityCode LIKE @kw)
                 ORDER BY b.BookingID DESC", conn))
             {

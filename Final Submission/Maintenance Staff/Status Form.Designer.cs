@@ -201,7 +201,6 @@
             Controls.Add(txtBoxFacilityName);
             Name = "Status_Form";
             Text = "Status Form";
-            Load += Status_Form_Load;
             ((System.ComponentModel.ISupportInitialize)DataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

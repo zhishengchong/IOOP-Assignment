@@ -3,16 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\zhish\\source\\repos\\zhishengchong\\IOOP-Assignment\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CE390924-5C2D-4E3F-BCB9-9B0E32C9211D}|Final Submission\\Final Submission compile.csproj|c:\\users\\zhish\\source\\repos\\zhishengchong\\ioop-assignment\\final submission\\login menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE390924-5C2D-4E3F-BCB9-9B0E32C9211D}|Final Submission\\Final Submission compile.csproj|solutionrelative:final submission\\login menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CE390924-5C2D-4E3F-BCB9-9B0E32C9211D}|Final Submission\\Final Submission compile.csproj|c:\\users\\zhish\\source\\repos\\zhishengchong\\ioop-assignment\\final submission\\receptionist\\studentsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CE390924-5C2D-4E3F-BCB9-9B0E32C9211D}|Final Submission\\Final Submission compile.csproj|solutionrelative:final submission\\receptionist\\studentsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CE390924-5C2D-4E3F-BCB9-9B0E32C9211D}|Final Submission\\Final Submission compile.csproj|C:\\Users\\zhish\\source\\repos\\zhishengchong\\IOOP-Assignment\\final submission\\login menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{CE390924-5C2D-4E3F-BCB9-9B0E32C9211D}|Final Submission\\Final Submission compile.csproj|solutionrelative:final submission\\login menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{CE390924-5C2D-4E3F-BCB9-9B0E32C9211D}|Final Submission\\Final Submission compile.csproj|c:\\users\\zhish\\source\\repos\\zhishengchong\\ioop-assignment\\final submission\\receptionist\\receptionmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE390924-5C2D-4E3F-BCB9-9B0E32C9211D}|Final Submission\\Final Submission compile.csproj|solutionrelative:final submission\\receptionist\\receptionmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CE390924-5C2D-4E3F-BCB9-9B0E32C9211D}|Final Submission\\Final Submission compile.csproj|c:\\users\\zhish\\source\\repos\\zhishengchong\\ioop-assignment\\final submission\\login menu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CE390924-5C2D-4E3F-BCB9-9B0E32C9211D}|Final Submission\\Final Submission compile.csproj|solutionrelative:final submission\\login menu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CE390924-5C2D-4E3F-BCB9-9B0E32C9211D}|Final Submission\\Final Submission compile.csproj|c:\\users\\zhish\\source\\repos\\zhishengchong\\ioop-assignment\\final submission\\receptionist\\receptionmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CE390924-5C2D-4E3F-BCB9-9B0E32C9211D}|Final Submission\\Final Submission compile.csproj|solutionrelative:final submission\\receptionist\\receptionmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE390924-5C2D-4E3F-BCB9-9B0E32C9211D}|Final Submission\\Final Submission compile.csproj|c:\\users\\zhish\\source\\repos\\zhishengchong\\ioop-assignment\\final submission\\receptionist\\paymentsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE390924-5C2D-4E3F-BCB9-9B0E32C9211D}|Final Submission\\Final Submission compile.csproj|solutionrelative:final submission\\receptionist\\paymentsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE390924-5C2D-4E3F-BCB9-9B0E32C9211D}|Final Submission\\Final Submission compile.csproj|c:\\users\\zhish\\source\\repos\\zhishengchong\\ioop-assignment\\final submission\\receptionist\\paymentsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CE390924-5C2D-4E3F-BCB9-9B0E32C9211D}|Final Submission\\Final Submission compile.csproj|solutionrelative:final submission\\receptionist\\paymentsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE390924-5C2D-4E3F-BCB9-9B0E32C9211D}|Final Submission\\Final Submission compile.csproj|c:\\users\\zhish\\source\\repos\\zhishengchong\\ioop-assignment\\final submission\\receptionist\\bookingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE390924-5C2D-4E3F-BCB9-9B0E32C9211D}|Final Submission\\Final Submission compile.csproj|solutionrelative:final submission\\receptionist\\bookingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE390924-5C2D-4E3F-BCB9-9B0E32C9211D}|Final Submission\\Final Submission compile.csproj|c:\\users\\zhish\\source\\repos\\zhishengchong\\ioop-assignment\\final submission\\receptionist\\bookingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{CE390924-5C2D-4E3F-BCB9-9B0E32C9211D}|Final Submission\\Final Submission compile.csproj|solutionrelative:final submission\\receptionist\\bookingsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,41 +58,90 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Login Menu.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\zhish\\source\\repos\\zhishengchong\\IOOP-Assignment\\Final Submission\\Login Menu.cs",
-              "RelativeDocumentMoniker": "Final Submission\\Login Menu.cs",
-              "ToolTip": "C:\\Users\\zhish\\source\\repos\\zhishengchong\\IOOP-Assignment\\Final Submission\\Login Menu.cs [Design]",
-              "RelativeToolTip": "Final Submission\\Login Menu.cs [Design]",
+              "DocumentIndex": 0,
+              "Title": "StudentsForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\zhish\\source\\repos\\zhishengchong\\IOOP-Assignment\\Final Submission\\Receptionist\\StudentsForm.cs",
+              "RelativeDocumentMoniker": "Final Submission\\Receptionist\\StudentsForm.cs",
+              "ToolTip": "C:\\Users\\zhish\\source\\repos\\zhishengchong\\IOOP-Assignment\\Final Submission\\Receptionist\\StudentsForm.cs [Design]",
+              "RelativeToolTip": "Final Submission\\Receptionist\\StudentsForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T11:07:47.665Z",
+              "WhenOpened": "2025-08-19T15:18:33.257Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Login Menu.cs",
-              "DocumentMoniker": "C:\\Users\\zhish\\source\\repos\\zhishengchong\\IOOP-Assignment\\Final Submission\\Login Menu.cs",
-              "RelativeDocumentMoniker": "Final Submission\\Login Menu.cs",
-              "ToolTip": "C:\\Users\\zhish\\source\\repos\\zhishengchong\\IOOP-Assignment\\Final Submission\\Login Menu.cs",
-              "RelativeToolTip": "Final Submission\\Login Menu.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAbAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ReceptionMain.cs",
+              "DocumentMoniker": "C:\\Users\\zhish\\source\\repos\\zhishengchong\\IOOP-Assignment\\Final Submission\\Receptionist\\ReceptionMain.cs",
+              "RelativeDocumentMoniker": "Final Submission\\Receptionist\\ReceptionMain.cs",
+              "ToolTip": "C:\\Users\\zhish\\source\\repos\\zhishengchong\\IOOP-Assignment\\Final Submission\\Receptionist\\ReceptionMain.cs",
+              "RelativeToolTip": "Final Submission\\Receptionist\\ReceptionMain.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T10:52:32.524Z",
+              "WhenOpened": "2025-08-19T15:18:29.546Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Login Menu.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\zhish\\source\\repos\\zhishengchong\\IOOP-Assignment\\Final Submission\\Login Menu.Designer.cs",
-              "RelativeDocumentMoniker": "Final Submission\\Login Menu.Designer.cs",
-              "ToolTip": "C:\\Users\\zhish\\source\\repos\\zhishengchong\\IOOP-Assignment\\Final Submission\\Login Menu.Designer.cs",
-              "RelativeToolTip": "Final Submission\\Login Menu.Designer.cs",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAqwGwAAAAjAAAAAAAAAA==",
+              "Title": "ReceptionMain.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\zhish\\source\\repos\\zhishengchong\\IOOP-Assignment\\Final Submission\\Receptionist\\ReceptionMain.cs",
+              "RelativeDocumentMoniker": "Final Submission\\Receptionist\\ReceptionMain.cs",
+              "ToolTip": "C:\\Users\\zhish\\source\\repos\\zhishengchong\\IOOP-Assignment\\Final Submission\\Receptionist\\ReceptionMain.cs [Design]",
+              "RelativeToolTip": "Final Submission\\Receptionist\\ReceptionMain.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-19T10:52:19.068Z",
+              "WhenOpened": "2025-08-19T15:18:27.201Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PaymentsForm.cs",
+              "DocumentMoniker": "C:\\Users\\zhish\\source\\repos\\zhishengchong\\IOOP-Assignment\\Final Submission\\Receptionist\\PaymentsForm.cs",
+              "RelativeDocumentMoniker": "Final Submission\\Receptionist\\PaymentsForm.cs",
+              "ToolTip": "C:\\Users\\zhish\\source\\repos\\zhishengchong\\IOOP-Assignment\\Final Submission\\Receptionist\\PaymentsForm.cs",
+              "RelativeToolTip": "Final Submission\\Receptionist\\PaymentsForm.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-19T15:17:50.764Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PaymentsForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\zhish\\source\\repos\\zhishengchong\\IOOP-Assignment\\Final Submission\\Receptionist\\PaymentsForm.cs",
+              "RelativeDocumentMoniker": "Final Submission\\Receptionist\\PaymentsForm.cs",
+              "ToolTip": "C:\\Users\\zhish\\source\\repos\\zhishengchong\\IOOP-Assignment\\Final Submission\\Receptionist\\PaymentsForm.cs [Design]",
+              "RelativeToolTip": "Final Submission\\Receptionist\\PaymentsForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-19T15:17:48.237Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BookingsForm.cs",
+              "DocumentMoniker": "C:\\Users\\zhish\\source\\repos\\zhishengchong\\IOOP-Assignment\\Final Submission\\Receptionist\\BookingsForm.cs",
+              "RelativeDocumentMoniker": "Final Submission\\Receptionist\\BookingsForm.cs",
+              "ToolTip": "C:\\Users\\zhish\\source\\repos\\zhishengchong\\IOOP-Assignment\\Final Submission\\Receptionist\\BookingsForm.cs",
+              "RelativeToolTip": "Final Submission\\Receptionist\\BookingsForm.cs",
+              "ViewState": "AgIAAKkAAAAAAAAAAAAcwG0AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-19T15:16:51.56Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BookingsForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\zhish\\source\\repos\\zhishengchong\\IOOP-Assignment\\Final Submission\\Receptionist\\BookingsForm.cs",
+              "RelativeDocumentMoniker": "Final Submission\\Receptionist\\BookingsForm.cs",
+              "ToolTip": "C:\\Users\\zhish\\source\\repos\\zhishengchong\\IOOP-Assignment\\Final Submission\\Receptionist\\BookingsForm.cs [Design]",
+              "RelativeToolTip": "Final Submission\\Receptionist\\BookingsForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-19T15:16:49.761Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

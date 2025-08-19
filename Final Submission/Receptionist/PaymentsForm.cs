@@ -53,7 +53,7 @@ namespace ARFMS_Reception
                        CASE WHEN r.ReceiptID IS NULL THEN 0 ELSE 1 END AS Paid
                 FROM dbo.Booking b
                 JOIN dbo.Student s ON b.StudentID=s.StudentID
-                JOIN dbo.Facility f ON b.FacilityID=f.FacilityID
+                JOIN dbo.Facility1 f ON b.FacilityID=f.FacilityID
                 LEFT JOIN dbo.Receipt r ON r.BookingID=b.BookingID
                 ORDER BY b.BookingID DESC", conn))
             {
@@ -72,7 +72,7 @@ namespace ARFMS_Reception
                 FROM dbo.Receipt r
                 JOIN dbo.Booking b ON r.BookingID=b.BookingID
                 JOIN dbo.Student s ON b.StudentID=s.StudentID
-                JOIN dbo.Facility f ON b.FacilityID=f.FacilityID
+                JOIN dbo.Facility1 f ON b.FacilityID=f.FacilityID
                 ORDER BY r.ReceiptID DESC", conn))
             {
                 var dt = new DataTable(); da.Fill(dt);
@@ -159,7 +159,7 @@ namespace ARFMS_Reception
                 FROM dbo.Receipt r
                 JOIN dbo.Booking b ON r.BookingID=b.BookingID
                 JOIN dbo.Student s ON b.StudentID=s.StudentID
-                JOIN dbo.Facility f ON b.FacilityID=f.FacilityID
+                JOIN dbo.Facility1 f ON b.FacilityID=f.FacilityID
                 WHERE r.BookingID=@bid", conn))
             {
                 cmd.Parameters.Add("@bid", SqlDbType.Int).Value = bid;
@@ -184,6 +184,11 @@ namespace ARFMS_Reception
                     MessageBox.Show(text, "Receipt Preview");
                 }
             }
+        }
+
+        private void PaymentsForm_Load_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

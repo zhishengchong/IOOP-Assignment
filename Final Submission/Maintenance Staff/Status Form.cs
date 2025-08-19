@@ -25,7 +25,7 @@ namespace Maintenance_Schedule
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 adapter = new SqlDataAdapter(
-                    "SELECT [Schedule ID], [Facility Name], [Task Description], Status, [Date], [Time] FROM Schedule",
+                    "SELECT [Schedule ID], [Facility Name], [Task Description], Status, [Date], [Time] FROM [Maintenanace Schedule]",
                     conn);
                 scheduleTable = new DataTable();
                 adapter.Fill(scheduleTable);
@@ -48,7 +48,7 @@ namespace Maintenance_Schedule
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(
-                    "INSERT INTO Schedule ([Facility Name], [Task Description], Status, [Date], [Time]) VALUES (@Facility, @Task, @Status, @Date, @Time)", conn);
+                    "INSERT INTO [Maintenanace Schedule] ([Facility Name], [Task Description], Status, [Date], [Time]) VALUES (@Facility, @Task, @Status, @Date, @Time)", conn);
                 cmd.Parameters.AddWithValue("@Facility", txtBoxFacilityName.Text ?? "");
                 cmd.Parameters.AddWithValue("@Task", txtBoxTaskDescription.Text ?? "");
                 cmd.Parameters.AddWithValue("@Status", comboBoxStatus.SelectedItem?.ToString() ?? "Pending");
@@ -78,7 +78,7 @@ namespace Maintenance_Schedule
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand(
-                    "UPDATE Schedule SET [Facility Name] = @Facility, [Task Description] = @Task, Status = @Status, [Date] = @Date, [Time] = @Time WHERE [Schedule ID] = @ID", conn);
+                    "UPDATE [Maintenanace Schedule] SET [Facility Name] = @Facility, [Task Description] = @Task, Status = @Status, [Date] = @Date, [Time] = @Time WHERE [Schedule ID] = @ID", conn);
                 cmd.Parameters.AddWithValue("@Facility", txtBoxFacilityName.Text ?? "");
                 cmd.Parameters.AddWithValue("@Task", txtBoxTaskDescription.Text ?? "");
                 cmd.Parameters.AddWithValue("@Status", comboBoxStatus.SelectedItem?.ToString() ?? "Pending");
@@ -108,7 +108,7 @@ namespace Maintenance_Schedule
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("DELETE FROM Schedule WHERE [Schedule ID] = @ID", conn);
+                SqlCommand cmd = new SqlCommand("DELETE FROM [Maintenanace Schedule] WHERE [Schedule ID] = @ID", conn);
                 cmd.Parameters.AddWithValue("@ID", scheduleId);
                 cmd.ExecuteNonQuery();
             }
@@ -137,9 +137,5 @@ namespace Maintenance_Schedule
             }
         }
 
-        private void Status_Form_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

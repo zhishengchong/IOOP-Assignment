@@ -28,146 +28,159 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvStudents = new System.Windows.Forms.DataGridView();
-            this.btnDeleteStudent = new System.Windows.Forms.Button();
-            this.btnAddStudent = new System.Windows.Forms.Button();
-            this.txtUniversity = new System.Windows.Forms.TextBox();
-            this.txtPhone = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.lblUniversity = new System.Windows.Forms.Label();
-            this.lblPhone = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).BeginInit();
-            this.SuspendLayout();
+            dgvStudents = new DataGridView();
+            btnDeleteStudent = new Button();
+            btnAddStudent = new Button();
+            txtUniversity = new TextBox();
+            txtPhone = new TextBox();
+            txtEmail = new TextBox();
+            txtName = new TextBox();
+            lblUniversity = new Label();
+            lblPhone = new Label();
+            lblEmail = new Label();
+            lblName = new Label();
+            ((System.ComponentModel.ISupportInitialize)dgvStudents).BeginInit();
+            SuspendLayout();
             // 
             // dgvStudents
             // 
-            this.dgvStudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvStudents.BackgroundColor = System.Drawing.SystemColors.Info;
-            this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvStudents.Location = new System.Drawing.Point(12, 321);
-            this.dgvStudents.MultiSelect = false;
-            this.dgvStudents.Name = "dgvStudents";
-            this.dgvStudents.ReadOnly = true;
-            this.dgvStudents.RowHeadersWidth = 62;
-            this.dgvStudents.RowTemplate.Height = 30;
-            this.dgvStudents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvStudents.Size = new System.Drawing.Size(764, 241);
-            this.dgvStudents.TabIndex = 21;
+            dgvStudents.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvStudents.BackgroundColor = SystemColors.Info;
+            dgvStudents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvStudents.Location = new Point(9, 268);
+            dgvStudents.Margin = new Padding(2, 2, 2, 2);
+            dgvStudents.MultiSelect = false;
+            dgvStudents.Name = "dgvStudents";
+            dgvStudents.ReadOnly = true;
+            dgvStudents.RowHeadersWidth = 62;
+            dgvStudents.RowTemplate.Height = 30;
+            dgvStudents.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvStudents.Size = new Size(594, 201);
+            dgvStudents.TabIndex = 21;
             // 
             // btnDeleteStudent
             // 
-            this.btnDeleteStudent.Location = new System.Drawing.Point(44, 252);
-            this.btnDeleteStudent.Name = "btnDeleteStudent";
-            this.btnDeleteStudent.Size = new System.Drawing.Size(219, 55);
-            this.btnDeleteStudent.TabIndex = 20;
-            this.btnDeleteStudent.Text = "Delete Student";
-            this.btnDeleteStudent.UseVisualStyleBackColor = true;
+            btnDeleteStudent.Location = new Point(34, 210);
+            btnDeleteStudent.Margin = new Padding(2, 2, 2, 2);
+            btnDeleteStudent.Name = "btnDeleteStudent";
+            btnDeleteStudent.Size = new Size(170, 46);
+            btnDeleteStudent.TabIndex = 20;
+            btnDeleteStudent.Text = "Delete Student";
+            btnDeleteStudent.UseVisualStyleBackColor = true;
             // 
             // btnAddStudent
             // 
-            this.btnAddStudent.Location = new System.Drawing.Point(331, 252);
-            this.btnAddStudent.Name = "btnAddStudent";
-            this.btnAddStudent.Size = new System.Drawing.Size(219, 55);
-            this.btnAddStudent.TabIndex = 19;
-            this.btnAddStudent.Text = "Add Student";
-            this.btnAddStudent.UseVisualStyleBackColor = true;
+            btnAddStudent.Location = new Point(257, 210);
+            btnAddStudent.Margin = new Padding(2, 2, 2, 2);
+            btnAddStudent.Name = "btnAddStudent";
+            btnAddStudent.Size = new Size(170, 46);
+            btnAddStudent.TabIndex = 19;
+            btnAddStudent.Text = "Add Student";
+            btnAddStudent.UseVisualStyleBackColor = true;
             // 
             // txtUniversity
             // 
-            this.txtUniversity.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtUniversity.Location = new System.Drawing.Point(331, 187);
-            this.txtUniversity.Name = "txtUniversity";
-            this.txtUniversity.Size = new System.Drawing.Size(219, 42);
-            this.txtUniversity.TabIndex = 18;
+            txtUniversity.Font = new Font("SimSun", 15F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            txtUniversity.Location = new Point(257, 156);
+            txtUniversity.Margin = new Padding(2, 2, 2, 2);
+            txtUniversity.Name = "txtUniversity";
+            txtUniversity.Size = new Size(171, 30);
+            txtUniversity.TabIndex = 18;
             // 
             // txtPhone
             // 
-            this.txtPhone.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtPhone.Location = new System.Drawing.Point(331, 125);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(219, 42);
-            this.txtPhone.TabIndex = 17;
+            txtPhone.Font = new Font("SimSun", 15F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            txtPhone.Location = new Point(257, 104);
+            txtPhone.Margin = new Padding(2, 2, 2, 2);
+            txtPhone.Name = "txtPhone";
+            txtPhone.Size = new Size(171, 30);
+            txtPhone.TabIndex = 17;
             // 
             // txtEmail
             // 
-            this.txtEmail.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtEmail.Location = new System.Drawing.Point(331, 71);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(219, 42);
-            this.txtEmail.TabIndex = 16;
+            txtEmail.Font = new Font("SimSun", 15F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            txtEmail.Location = new Point(257, 59);
+            txtEmail.Margin = new Padding(2, 2, 2, 2);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(171, 30);
+            txtEmail.TabIndex = 16;
             // 
             // txtName
             // 
-            this.txtName.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtName.Location = new System.Drawing.Point(331, 12);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(219, 42);
-            this.txtName.TabIndex = 15;
+            txtName.Font = new Font("SimSun", 15F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            txtName.Location = new Point(257, 10);
+            txtName.Margin = new Padding(2, 2, 2, 2);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(171, 30);
+            txtName.TabIndex = 15;
             // 
             // lblUniversity
             // 
-            this.lblUniversity.AutoSize = true;
-            this.lblUniversity.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblUniversity.Location = new System.Drawing.Point(39, 199);
-            this.lblUniversity.Name = "lblUniversity";
-            this.lblUniversity.Size = new System.Drawing.Size(178, 30);
-            this.lblUniversity.TabIndex = 14;
-            this.lblUniversity.Text = "University:";
+            lblUniversity.AutoSize = true;
+            lblUniversity.Font = new Font("SimSun", 15F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            lblUniversity.Location = new Point(30, 166);
+            lblUniversity.Margin = new Padding(2, 0, 2, 0);
+            lblUniversity.Name = "lblUniversity";
+            lblUniversity.Size = new Size(119, 20);
+            lblUniversity.TabIndex = 14;
+            lblUniversity.Text = "University:";
             // 
             // lblPhone
             // 
-            this.lblPhone.AutoSize = true;
-            this.lblPhone.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblPhone.Location = new System.Drawing.Point(39, 137);
-            this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(103, 30);
-            this.lblPhone.TabIndex = 13;
-            this.lblPhone.Text = "Phone:";
+            lblPhone.AutoSize = true;
+            lblPhone.Font = new Font("SimSun", 15F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            lblPhone.Location = new Point(30, 114);
+            lblPhone.Margin = new Padding(2, 0, 2, 0);
+            lblPhone.Name = "lblPhone";
+            lblPhone.Size = new Size(69, 20);
+            lblPhone.TabIndex = 13;
+            lblPhone.Text = "Phone:";
             // 
             // lblEmail
             // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblEmail.Location = new System.Drawing.Point(39, 83);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(103, 30);
-            this.lblEmail.TabIndex = 12;
-            this.lblEmail.Text = "Email:";
+            lblEmail.AutoSize = true;
+            lblEmail.Font = new Font("SimSun", 15F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            lblEmail.Location = new Point(30, 69);
+            lblEmail.Margin = new Padding(2, 0, 2, 0);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(69, 20);
+            lblEmail.TabIndex = 12;
+            lblEmail.Text = "Email:";
             // 
             // lblName
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblName.Location = new System.Drawing.Point(39, 24);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(88, 30);
-            this.lblName.TabIndex = 11;
-            this.lblName.Text = "Name:";
+            lblName.AutoSize = true;
+            lblName.Font = new Font("SimSun", 15F, FontStyle.Regular, GraphicsUnit.Point, 134);
+            lblName.Location = new Point(30, 20);
+            lblName.Margin = new Padding(2, 0, 2, 0);
+            lblName.Name = "lblName";
+            lblName.Size = new Size(59, 20);
+            lblName.TabIndex = 11;
+            lblName.Text = "Name:";
             // 
             // StudentsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(830, 564);
-            this.Controls.Add(this.dgvStudents);
-            this.Controls.Add(this.btnDeleteStudent);
-            this.Controls.Add(this.btnAddStudent);
-            this.Controls.Add(this.txtUniversity);
-            this.Controls.Add(this.txtPhone);
-            this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.txtName);
-            this.Controls.Add(this.lblUniversity);
-            this.Controls.Add(this.lblPhone);
-            this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.lblName);
-            this.Name = "StudentsForm";
-            this.Text = "StudentsForm";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(646, 470);
+            Controls.Add(dgvStudents);
+            Controls.Add(btnDeleteStudent);
+            Controls.Add(btnAddStudent);
+            Controls.Add(txtUniversity);
+            Controls.Add(txtPhone);
+            Controls.Add(txtEmail);
+            Controls.Add(txtName);
+            Controls.Add(lblUniversity);
+            Controls.Add(lblPhone);
+            Controls.Add(lblEmail);
+            Controls.Add(lblName);
+            Margin = new Padding(2, 2, 2, 2);
+            Name = "StudentsForm";
+            Text = "StudentsForm";
+            Load += StudentsForm_Load_1;
+            ((System.ComponentModel.ISupportInitialize)dgvStudents).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

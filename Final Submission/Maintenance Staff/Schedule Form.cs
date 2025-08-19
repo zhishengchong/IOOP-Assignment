@@ -36,7 +36,7 @@ namespace Maintenance_Schedule
 
                     string query = @"
                         SELECT [Schedule ID], [Facility Name], Date, Time, [Task Description], Status
-                        FROM Schedule
+                        FROM [Maintenanace Schedule]
                         WHERE (@SelectedDate IS NULL OR [Date] = @SelectedDate)
                         ORDER BY Date, Time";
 
