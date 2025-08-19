@@ -1,0 +1,15 @@
+# 1. Remove .vs from Git tracking (keeps local files)
+git rm -r --cached .vs
+
+# 2. Make sure .gitignore exists and add rules
+echo ".vs/" >> .gitignore
+echo "*.vsidx" >> .gitignore
+
+# 3. Stage changes
+git add .gitignore
+
+# 4. Commit cleanup
+git commit -m "Ignore .vs folder and vsidx files"
+
+# 5. (Optional) Clean leftover untracked/ignored files
+git clean -fdX
