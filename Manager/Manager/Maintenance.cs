@@ -98,33 +98,6 @@ namespace Manager
             return nm;
         }
 
-        public string updateProfile(string em, string num)
-        {
-            string status;
-            con.Open();
-            email = em;
-            phoneNum = num;
-            string mysql;
-
-            mysql = "update MaintenanceStaff set email ='" + email + "', phoneNumber= '" +
-                phoneNum + "' where Name='" + maintName + "'";
-
-            SqlCommand cmd = new SqlCommand(mysql, con);
-            int i = cmd.ExecuteNonQuery();
-            if (i != 0)
-            {
-                status = "Updata Successfully";
-            }
-            else
-            {
-                status = "Unable to update";
-            }
-
-            con.Close();
-
-            return status;
-        }
-
         public string deleteProfile()
         {
             string status;
