@@ -81,7 +81,7 @@ namespace Manager
             return status;
         }
 
-            public static ArrayList viewAll()
+         public static ArrayList viewAll()
         {
             //to create a dynamic array
             ArrayList nm = new ArrayList();
@@ -96,20 +96,6 @@ namespace Manager
             con.Close();
 
             return nm;
-        }
-
-        public static void ViewProfile(Maintenance o1)
-        {
-            con.Open();
-            SqlCommand cmd = new SqlCommand("select * from MaintenanceStaff where Name = '" + o1.maintName + "'", con);
-            SqlDataReader rd = cmd.ExecuteReader();
-            while (rd.Read())
-            {
-                o1.email = rd.GetString(2);
-                o1.phoneNum = rd.GetString(3);
-            }
-
-            con.Close();
         }
 
         public string updateProfile(string em, string num)

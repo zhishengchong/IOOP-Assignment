@@ -98,20 +98,6 @@ namespace Manager
             return nm;
         }
 
-        public static void ViewProfile(Receptionist o1)
-        {
-            con.Open();
-            SqlCommand cmd = new SqlCommand("select * from ReceptionistStaff where Name = '" + o1.receptName + "'", con);
-            SqlDataReader rd = cmd.ExecuteReader();
-            while (rd.Read())
-            {
-                o1.email = rd.GetString(2);
-                o1.phoneNum = rd.GetString(3);
-            }
-
-            con.Close();
-        }
-
         public string updateProfile(string em, string num)
         {
             string status;
