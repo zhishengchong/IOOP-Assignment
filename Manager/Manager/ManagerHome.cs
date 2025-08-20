@@ -31,8 +31,8 @@ namespace Manager
 
         private void signMaint_Click(object sender, EventArgs e)
         {
-            AssignMaintenance aM = new AssignMaintenance();
-            aM.Show();
+            ScheduleMenu sM = new ScheduleMenu();
+            sM.Show();
         }
 
         private void viewReq_Click(object sender, EventArgs e)
