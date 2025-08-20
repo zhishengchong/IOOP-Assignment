@@ -20,7 +20,7 @@ namespace Manager
 
         public Receptionist(string name, string Email, string PhoneNum)
         {
-            this.receptName = Name;
+            this.receptName = name;
             this.email = Email;
             this.phoneNum = PhoneNum;
         }

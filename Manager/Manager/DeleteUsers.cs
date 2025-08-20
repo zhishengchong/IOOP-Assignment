@@ -23,27 +23,11 @@ namespace Manager
             {
                 Maintenance m = new Maintenance(tbxName.Text);
                 string status = m.deleteProfile();
-                if (status == "Success")
-                {
-                    MessageBox.Show("Maintenance user deleted successfully.");
-                }
-                else
-                {
-                    MessageBox.Show("Error deleting maintenance user.");
-                }
             }
             else if (radRecpt.Checked)
             {
                 Receptionist r = new Receptionist(tbxName.Text);
                 string status = r.deleteProfile();
-                if (status == "Success")
-                {
-                    MessageBox.Show("Receptionist user deleted successfully.");
-                }
-                else
-                {
-                    MessageBox.Show("Error deleting receptionist user.");
-                }
             }
             else
             {

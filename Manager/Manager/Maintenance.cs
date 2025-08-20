@@ -20,7 +20,7 @@ namespace Manager
 
         public Maintenance(string name, string Email, string PhoneNum)
         {
-            this.maintName = Name;
+            this.maintName = name;
             this.email = Email;
             this.phoneNum = PhoneNum;
         }
