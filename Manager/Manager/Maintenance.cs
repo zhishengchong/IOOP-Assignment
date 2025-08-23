@@ -58,11 +58,13 @@ namespace Manager
 
             SqlCommand cmd = new SqlCommand("Insert into MaintenanceStaff(Name, email, PhoneNumber) values(@name, @em,@num)", con);
 
-            SqlCommand cmd2 = new SqlCommand("Insert into Users(username, role, password) values(@name,'Maintenance','123')", con);
+            SqlCommand cmd2 = new SqlCommand("Insert into Users(username, email, phoneNumber, role, password) values(@name,@em,@num,'maintenance','123')", con);
             cmd.Parameters.AddWithValue("@name", this.maintName);
             cmd2.Parameters.AddWithValue("@name", this.maintName);
             cmd.Parameters.AddWithValue("@em", this.email);
+            cmd2.Parameters.AddWithValue("@em", this.email);
             cmd.Parameters.AddWithValue("@num", this.phoneNum);
+            cmd2.Parameters.AddWithValue("@num", this.phoneNum);
 
             cmd2.ExecuteNonQuery();
             int i = cmd.ExecuteNonQuery();

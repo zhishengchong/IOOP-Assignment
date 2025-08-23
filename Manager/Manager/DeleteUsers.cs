@@ -23,11 +23,13 @@ namespace Manager
             {
                 Maintenance m = new Maintenance(tbxName.Text);
                 string status = m.deleteProfile();
+                tbxName.Text = String.Empty;
             }
             else if (radRecpt.Checked)
             {
                 Receptionist r = new Receptionist(tbxName.Text);
                 string status = r.deleteProfile();
+                tbxName.Text = String.Empty;
             }
             else
             {

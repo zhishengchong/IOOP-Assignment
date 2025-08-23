@@ -21,15 +21,7 @@ namespace Manager
         private void btnDelFac_Click(object sender, EventArgs e)
         {
             Facilities m = new Facilities(tbxFac.Text);
-            string status = m.deleteFacilities();
-            if (status == "Success")
-            {
-                MessageBox.Show("Facility deleted successfully.");
-            }
-            else
-            {
-                MessageBox.Show("Error deleting facility.");
-            }
+            tbxFac.Text = String.Empty;
         }
 
         private void label1_Click(object sender, EventArgs e)
