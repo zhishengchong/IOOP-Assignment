@@ -28,5 +28,23 @@ namespace Manager
                 listBox1.Items.Add(item);
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddFacility aF = new AddFacility();
+            aF.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            EditFacility eF = new EditFacility();
+            eF.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DeleteFacility dF = new DeleteFacility();
+            dF.Show();
+        }
     }
 }
