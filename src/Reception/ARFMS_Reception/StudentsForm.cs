@@ -35,7 +35,7 @@ namespace ARFMS_Reception
         {
             using (var conn = Db.Conn())
             using (var da = new SqlDataAdapter(
-                "SELECT StudentID, Name, Email, Phone, University FROM dbo.Student ORDER BY StudentID DESC", conn))
+                "SELECT StudentID, Name, Email, Phone, Password FROM dbo.Student ORDER BY StudentID DESC", conn))
             {
                 var dt = new DataTable();
                 da.Fill(dt);
@@ -61,7 +61,7 @@ namespace ARFMS_Reception
 
             using (var conn = Db.Conn())
             using (var cmd = new SqlCommand(
-                "INSERT INTO dbo.Student(Name,Email,Phone,University) VALUES(@n,@e,@p,@u)", conn))
+                "INSERT INTO dbo.Student(Name,Email,Phone,Password) VALUES(@n,@e,@p,@u)", conn))
             {
                 cmd.Parameters.Add("@n", SqlDbType.NVarChar, 50).Value = txtName.Text.Trim();
                 cmd.Parameters.Add("@e", SqlDbType.NVarChar, 50).Value =
@@ -69,14 +69,14 @@ namespace ARFMS_Reception
                 cmd.Parameters.Add("@p", SqlDbType.NVarChar, 20).Value =
                     string.IsNullOrWhiteSpace(txtPhone.Text) ? (object)DBNull.Value : txtPhone.Text.Trim();
                 cmd.Parameters.Add("@u", SqlDbType.NVarChar, 50).Value =
-                    string.IsNullOrWhiteSpace(txtUniversity.Text) ? (object)DBNull.Value : txtUniversity.Text.Trim();
+                    string.IsNullOrWhiteSpace(txtPassword.Text) ? (object)DBNull.Value : txtPassword.Text.Trim();
 
                 conn.Open();
                 cmd.ExecuteNonQuery();
             }
 
             LoadStudents();
-            txtName.Clear(); txtEmail.Clear(); txtPhone.Clear(); txtUniversity.Clear();
+            txtName.Clear(); txtEmail.Clear(); txtPhone.Clear(); txtPassword.Clear();
             txtName.Focus();
         }
 

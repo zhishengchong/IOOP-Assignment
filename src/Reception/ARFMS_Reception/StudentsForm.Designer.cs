@@ -31,11 +31,11 @@
             this.dgvStudents = new System.Windows.Forms.DataGridView();
             this.btnDeleteStudent = new System.Windows.Forms.Button();
             this.btnAddStudent = new System.Windows.Forms.Button();
-            this.txtUniversity = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.lblUniversity = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
             this.lblPhone = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
@@ -75,13 +75,13 @@
             this.btnAddStudent.Text = "Add Student";
             this.btnAddStudent.UseVisualStyleBackColor = true;
             // 
-            // txtUniversity
+            // txtPassword
             // 
-            this.txtUniversity.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtUniversity.Location = new System.Drawing.Point(331, 187);
-            this.txtUniversity.Name = "txtUniversity";
-            this.txtUniversity.Size = new System.Drawing.Size(219, 42);
-            this.txtUniversity.TabIndex = 18;
+            this.txtPassword.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtPassword.Location = new System.Drawing.Point(331, 187);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(219, 42);
+            this.txtPassword.TabIndex = 18;
             // 
             // txtPhone
             // 
@@ -107,15 +107,15 @@
             this.txtName.Size = new System.Drawing.Size(219, 42);
             this.txtName.TabIndex = 15;
             // 
-            // lblUniversity
+            // lblPassword
             // 
-            this.lblUniversity.AutoSize = true;
-            this.lblUniversity.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblUniversity.Location = new System.Drawing.Point(39, 199);
-            this.lblUniversity.Name = "lblUniversity";
-            this.lblUniversity.Size = new System.Drawing.Size(178, 30);
-            this.lblUniversity.TabIndex = 14;
-            this.lblUniversity.Text = "University:";
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("SimSun", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblPassword.Location = new System.Drawing.Point(39, 199);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(148, 30);
+            this.lblPassword.TabIndex = 14;
+            this.lblPassword.Text = "Password:";
             // 
             // lblPhone
             // 
@@ -155,11 +155,11 @@
             this.Controls.Add(this.dgvStudents);
             this.Controls.Add(this.btnDeleteStudent);
             this.Controls.Add(this.btnAddStudent);
-            this.Controls.Add(this.txtUniversity);
+            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.lblUniversity);
+            this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblPhone);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblName);
@@ -176,11 +176,11 @@
         private System.Windows.Forms.DataGridView dgvStudents;
         private System.Windows.Forms.Button btnDeleteStudent;
         private System.Windows.Forms.Button btnAddStudent;
-        private System.Windows.Forms.TextBox txtUniversity;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Label lblUniversity;
+        private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblName;
