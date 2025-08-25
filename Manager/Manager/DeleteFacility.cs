@@ -20,7 +20,8 @@ namespace Manager
 
         private void btnDelFac_Click(object sender, EventArgs e)
         {
-            Facilities m = new Facilities(tbxFac.Text);
+            Facilities f = new Facilities(tbxFac.Text);
+            f.deleteFacilities();
             tbxFac.Text = String.Empty;
         }
 

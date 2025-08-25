@@ -55,7 +55,9 @@ namespace Manager
             con.Open();
 
             SqlCommand cmd = new SqlCommand("Insert into Facility(Facility, FacilityType, MaintenanceRate) values(@fac, @facType,@rate)", con);
-
+            cmd.Parameters.AddWithValue("@fac", this.facility);
+            cmd.Parameters.AddWithValue("@facType", this.facilityType);
+            cmd.Parameters.AddWithValue("@rate", this.maintenanceRate);
             int i = cmd.ExecuteNonQuery();
 
             if (i != 0)
@@ -122,7 +124,7 @@ namespace Manager
             string status;
             con.Open();
             string mysql;
-            mysql = "delete from Facility where Name='" + facility + "'";
+            mysql = "delete from Facility where Facility ='" + facility + "'";
             SqlCommand cmd = new SqlCommand(mysql, con);
             int i = cmd.ExecuteNonQuery();
             if (i != 0)
